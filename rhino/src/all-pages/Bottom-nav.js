@@ -29,6 +29,7 @@ const Bottom = () => {
 		} className="num-nav">
 		 	{navoption.map((navs,i)=>{
 		 		return(
+		 			
 		 		<button className={num===i? 'btn-act' : 'btn'} onClick={()=>{
 		 			 setNum(i)
 		 			 
