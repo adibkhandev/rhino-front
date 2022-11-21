@@ -5,7 +5,7 @@ const Cart = () => {
 	return (
 		<div className="whole">
 			<div className="cart-page" >
-			<Navigation></Navigation>
+			<Navigation colour={"white"}/>
 		</div>
 		</div>
 		

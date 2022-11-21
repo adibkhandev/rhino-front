@@ -8,11 +8,13 @@ import Bottom from './all-pages/Bottom-nav'
 import Post from './all-pages/Post'
 import Navigation from './all-pages/Navigation-ash'
 import Cart from './all-pages/Cart'
+import LogReg from './all-pages/Log-reg'
 
 const App = () => {
   return (
      <>
-       <Cart></Cart>
+     <LogReg></LogReg>
+       {/*<Cart></Cart>*/}
       {/*<Landing/>
       <RunningOut/>
       <MostPopular/>

@@ -1,13 +1,13 @@
 import React from 'react'
 
-const Navigation = () => {
+const Navigation = (props) => {
   return (
     <>
     <div className="ashnav">
      <div className="logo">
-        <img src="images/rhino-logo-ash.png" alt="" className="logoimage"/>
+        <img src={`images/rhino-logo-${props.colour}.png`} alt="" className="logoimage"/>
      </div>
-     <div className="textnav-ash">
+     <div className={`textnav-${props.colour}`}>
         <h1 className="nav-but">About</h1>
         <h1 className="nav-but">Categories</h1>
         <h1 className="nav-but">Explore</h1>
@@ -16,13 +16,13 @@ const Navigation = () => {
     
      <div className="sidenav">
        <div id="icon-1" className="imgs">
-        <img  src="images/account-ash.png" alt="" className="icons"/>
+        <img  src={`images/account-${props.colour}.png`} alt="" className="icons"/>
        </div>
        <div className="imgs">
-        <img src="images/love-ash.png" alt="" className="icons"/>
+        <img src={`images/love-${props.colour}.png`} alt="" className="icons"/>
        </div>
        <div className="imgs">
-         <img src="images/shopping-bag-ash.png" alt="" className="icons"/>
+         <img src={`images/shopping-bag-${props.colour}.png`} alt="" className="icons"/>
       </div>    
      </div>
     </div>
