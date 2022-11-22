@@ -3,7 +3,7 @@ import React from 'react'
 const Navigation = (props) => {
   return (
     <>
-    <div className="ashnav">
+    <div className={props.binary===0?"ashnav":"ashnav-active"}>
      <div className="logo">
         <img src={`images/rhino-logo-${props.colour}.png`} alt="" className="logoimage"/>
      </div>
