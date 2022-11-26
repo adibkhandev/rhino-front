@@ -6,9 +6,9 @@ const Searched = () => {
 	return (
 		<>
 		<div className="search-page">
-			<div className="nav">
-				<Navigation></Navigation>
-			</div>
+			
+				<Navigation colour={"ash"} ></Navigation>
+			
            
             	
             

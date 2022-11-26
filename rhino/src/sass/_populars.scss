@@ -1,0 +1,45 @@
+
+.populars{
+		
+		height: 30em;
+		width: 65em;
+		display: flex;
+		align-items:center;
+
+
+		.card{
+			background-color: white;
+			margin: 2px;
+            height: 24em;
+            width: 16em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items:center;
+            .card-image{
+            	height: 10em;
+            	margin-bottom: 1em;
+            }
+            .price-icon{
+            	height: 1.4em;
+            }
+            .card-title{
+              font-family: 'Manrope', sans-serif;
+		      font-weight: 100;
+		      font-size: 1.2em;   
+		      margin-bottom: 0.3em; 
+            }
+            .card-price{
+              font-family: 'Manrope', sans-serif;
+		      font-weight: 100;
+		      font-size: 1.1em;
+		      margin-left: 4px;
+            }
+            .price{
+            	display: flex;
+            	align-items:center;
+
+            }
+
+		}
+	}

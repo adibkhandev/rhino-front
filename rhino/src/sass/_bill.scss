@@ -1,0 +1,174 @@
+.bill-page{
+	width: 100vw;
+	height: 100vh;
+	background-color:  #e5e5e5;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	.content{
+		width: 70%;
+		height: 60%;
+		// background-color: black;
+		display: flex;
+		.bill{
+			margin-right: 2em;
+			width: 50%;
+			.item{
+				height: 7em;
+				.title{
+					@include Font(0.8rem,100);
+					color: black;
+				}
+				.image{
+					img{
+						height: 5em;
+					}
+				}
+				.trio{
+					.count{
+						@include Font(0.8rem,100);
+					}
+				}
+			}
+		}
+	}
+	.details{
+		width: 50%;
+		margin-top: 0.4em;
+		.adressed , .delivery-time , .bill-sec , .payment-method{
+			background-color: #ececec;
+            box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;	
+		}
+		.adressed{
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: center;
+			padding-left: 2em;
+			height: 9em;
+			margin-bottom: 2.5em;
+			@include FancyFont(0.75rem,100);
+			color: grey;
+			.ship-2{
+				margin-top: 0.3em;
+                color: #3d3d3d;
+			}
+		
+			
+		}
+		.delivery-time{
+			height: 6em;
+			display: flex;
+			padding-left: 2em;
+			align-items: center;
+			@include FancyFont(0.75rem,100);
+			color: grey;
+			.time-1{
+
+			}
+			.time-2{
+				color: #3d3d3d;
+				margin-left: 1em;
+			}
+		}
+
+	}
+	.cont{
+		width: 100%;
+		height: auto;
+		display: flex;
+		
+		.bill-sec{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-start;
+			width: 50%;
+			height: 16.7em;
+			margin-top: 2em;
+			.heading{
+
+			    
+		    	width: 100%;
+		    	display: flex;
+		    	justify-content: flex-start;
+		    	align-items: center;
+		    	h1{
+		    	    @include FancyFont(2rem,100);
+		    	    color: grey;
+		    	    margin-left: 8%;
+		    	    margin-bottom: 4%;
+		    	}
+	        }
+	        .titles{
+	        	height: 64%;
+	        	width: 90%;
+	        	display: flex;
+	        	flex-direction: column;
+	        	align-items: center;
+	        	justify-content: space-around;
+	        }
+			.title{
+				display: flex;
+				
+				width: 80%;
+				margin : 0 10%;
+				justify-content: space-between;
+				.joined{
+					width: 55%;
+				
+					display: flex;
+					justify-content: space-between;
+				}
+				.header{
+					@include Font(1em,100);
+					margin-right: 10%;
+				}
+				.colon{
+					@include Font(1em,400);
+				}
+			}
+		}
+		.payment-method{
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			
+			.radios{
+				margin-left: 10%;
+				width: 80% ;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+				.radio{
+					@include Font(1rem,300);
+					color: grey;
+					input{
+						accent-color:grey;
+						margin-right: 6%;
+					}
+				}
+			}
+			.heading{
+				margin-left: 10%;
+				@include FancyFont(2rem,100);
+				color: grey;
+				margin-bottom: 4%;
+			}
+			margin-left: 2em;
+			width: 50%;
+			height: 10em;
+			padding: 2em 0;
+			margin-top: 2em;
+		}
+	}
+	.checkout-btn{
+		background-color: #3d3d3d;
+		@include Font(0.7rem,300);
+		color: white;
+		padding: 1rem 8rem;
+		border-radius: 4px;
+	}
+}

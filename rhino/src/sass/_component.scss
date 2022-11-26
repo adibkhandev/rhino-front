@@ -1,0 +1,53 @@
+
+.taka{
+	display: flex;
+	align-items: center;
+
+}
+.mini{
+	h1{
+		@include Font(1em,300);
+		margin-left: 4px;
+	     }
+	  img{
+		height: 1em;
+	}
+}
+.one{
+		h1{
+		@include Font(1.6em,300);
+		margin-left: 6px;
+	     }
+	  img{
+		height: 1.85em;
+	}
+}
+.two{
+		h1{
+		@include Font(1.85em,300);
+		margin-left: 6px;
+	     }
+	  img{
+		height: 2.25em;
+	}
+}
+.three{
+		h1{
+		@include Font(2em,300);
+		margin-left: 6px;
+	     }
+	  img{
+		height: 2.5em;
+	}
+}
+.seperate{
+	display: flex;
+}
+
+.stars{
+	display: flex;
+	.star{
+		margin: 0 3px;
+		height:1.8em;
+	}
+}

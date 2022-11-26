@@ -1,0 +1,84 @@
+.reviewer-page{
+	position: relative;
+	height: 100vh;
+	width: 100vw;
+	background-color:  #FFFFFF;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	.product-details{
+		display: flex;
+		width: 60%;
+		position: relative;
+		.details{
+			margin-left: 2%;
+			.title{
+				
+				@include FancyFont(2.2rem,100);
+				color: #3d3d3d;
+				margin-bottom: 0.6%;
+			}
+			.story{
+				@include Font(1.1rem,100);
+				width: max(50%,10em);
+				margin-bottom: 2%;
+
+			}
+			.stars{
+				position: absolute;
+				bottom: 0;
+				right: 0;
+			}
+		}
+	}
+	.input{
+		width: 60%;
+        margin-top: 1.6%;
+        position: relative;
+        img{
+				height: 1.1em;
+				position:absolute ;
+				top: 9.2%;
+				right: 1.2%;
+		}
+		input{
+			background-color: #c8c8c8;
+
+			width: 100%;
+			padding: 1em 0em ;
+			padding-bottom: 8em;
+			border: 2px #bfbfbf solid;
+			border-radius: 3px;
+			&::placeholder{
+				color: #3d3d3d;
+				padding-left :1.1em ;
+			}
+
+
+		}
+	}
+	.buttons{
+		margin-top: 1.4em;
+		width: 60%;
+		display: flex;
+		justify-content: space-between;
+	}
+}
+.btn-1{
+	button{
+	padding: 1em 3.2em;
+	border-radius: 2px;
+	background-color:#3c4f5c;
+	color: white;
+
+   }
+}
+.btn-2{
+	padding: 0.6em 0.8em;
+		background-color: #ececec;
+  		box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;	
+	img{
+		width:1.4em;
+	}
+}
