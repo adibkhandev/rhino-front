@@ -1,170 +1,96 @@
 
 .page2{
 	height: 66vh;
-	width: 100vw;
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 	position: relative;
-
-}
-.container{
-	height: 50vh;
-	width: 100vw;
-	// background-color: black;
-	position:absolute;
-	top: 10vh;
-	display: flex;
-	overflow: hidden;
-
-
-}
-.text-part{
-	height: 100%;
-	width: 30vw;
-	// background-color: red;
-	margin-left: 20vw;
-	margin-right: 0;
-	margin-top: 6vh;
-    
-	font-family: 'Bangers', cursive;
-	.title{
-		font-family: 'Bangers', cursive;
-		font-weight: 500;
-		font-size: 1.5em;
-	}
-	.description{
-       font-size: 2.4em;
-       font-weight: 500;
-       margin-bottom: 3.45em;
-	}
-	.name{
-		font-family: 'Manrope', sans-serif;
-		font-weight: 100;
-		font-size: 1.5em;
-		margin-bottom: 0.2em;
-	}
-	
-	.price{
-
-
-		display: flex;
-		flex-direction: row;
-		align-items:flex-start;
-		font-family: 'Manrope', sans-serif;
-		margin-bottom: 1.2em;
-
-		img{
-			height: 1.1em;
-		}
-		
-			
-		
-		h1{
-			font-weight: 100;
-			line-height: 1;
-			margin-left: 0.3em;
-			font-size: 1.2em;
-		}
-
-	}
-	.shop{
-		font-family: 'Manrope', sans-serif;
-		font-weight: 100;
-		font-size: 0.68em;
-
-        padding: 1.4em 4.6em;
-
-        border-radius: 3px;
-        background-color: #1c1c1c;
-        color: white;
-
-
-	}
-
-}
-.images-part{
-	height: 100%;
-	width: 40vw;
-	margin-top: 8vh;
-	margin-left: 10vw;
-	display: flex;
-	flex-direction: row;
-	
-
-	.carouselImages{
-		border-radius:2px;
-		height: 18em;
-		margin: 0 0.8em;
-	}
-	#second-image{
-		filter: blur(4px);
-	}
-}
-.arrow-button{
-	height: 140px;
-	width: 140px;
-	border-radius:250px;
-	outline: none;
-	border:none;
-	z-index: 2;
-	position: absolute;
-	top: 34%;
-	opacity: 0.6;
-	img{
-		height:60%;
-		transform: rotate(90deg);
-	}
-	
-}
-#right{
-		position:absolute;
-		right: 6%;
-		img{
-			transform: rotate(0deg);
-		}
-
-}
-#left{
-	left: 6%;
-	img{
-			transform: rotate(180deg);
-	}
-}
-.page3{
-	height: 80vh;
-	width: 100vw;
-	background-color: #19001E;
-	display: flex;
-	align-items:center;
-	justify-content: center;
-	.description{
-		// background-color: bisque;
-		height: 30em;
-		width: 35em;
+	.txts{
+		width: 30%;
+		height: 56%;
 		display: flex;
 		flex-direction: column;
-		justify-content:center;
-		h1{
-			font-family: 'Bangers', cursive;
-			color: white;
-			font-weight: 400;
+		justify-content: space-between;
+		margin-left: 8vw;
+		// background-color: black;
+		.small{
+			@include FancyFont(1.8rem,100);
 		}
-		.heading{
-            font-size: 4em;
-            margin-bottom: 3em;
-		}
-		.discon{
-			font-size: 1.4em;
-			margin-bottom: 0.2em;
-		}
-		.subheading{
-			margin-bottom: 1em;
-		}
-		button{
-			font-size: 0.65em;
-            width: 15em;
-            height: 4.5em;
-            border-radius:5px;
-            color: #19001E ;
 
+		.big{
+			@include FancyFont(2.5rem,100);
+		}
+		.pricers{
+			.title{
+				@include Font(1.8rem,100);
+				margin-bottom: 0.2em;
+			}
+			button{
+				background-color: #19001E;
+				color: white;
+				width: 14rem;
+				height: 3rem;
+				margin-top: 1.6em;
+				border-radius: 3px;
+			}
 		}
 	}
+	.images{
+		padding: 0 0.3vw;
+		overflow: hidden;
+		width: 35vw;
+		height: 50%;
+		// background-color: purple;
+		display: flex;
+		
+		align-items: center;
+		img{
+			width: 32%;
+			height: 100%;
+			margin: 0 0.3vw;
+			border-radius: 2px;
+		}
+		.inactive-images{
+			filter: blur(2px);
+		}
+		.active-image{
+			@keyframes go {
+				0%{
+					opacity: 1;
+				}
+				100%{
+					opacity: 0;
+				}
+			}
+			animation-name: go;
+			animation-duration: 1s;
+			animation-timing-function: ease-in-out;
+			
+		}
+	}
+	.movers{
+		position: absolute;
+		width: 96%;
+		display: flex;
+		justify-content: space-between;
+		#left{
+			transform: rotate(180deg);
+		}
+		button{
+			opacity: 0.8;
+			width: 15em;
+			height: 15em;
+			border-radius: 100%;
+			img{
+				width:25%;
+			}
+		}
+	}
+
+}
+.anime{
+    animation-name: goner;
+    animation-duration: 1s;
+
 }

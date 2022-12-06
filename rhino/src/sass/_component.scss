@@ -6,7 +6,7 @@
 }
 .mini{
 	h1{
-		@include Font(1em,300);
+		@include Font(1em,100);
 		margin-left: 4px;
 	     }
 	  img{
@@ -15,11 +15,11 @@
 }
 .one{
 		h1{
-		@include Font(1.6em,300);
+		@include Font(1.2em,100);
 		margin-left: 6px;
 	     }
 	  img{
-		height: 1.85em;
+		height: 1.4em;
 	}
 }
 .two{

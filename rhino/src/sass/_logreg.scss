@@ -1,5 +1,9 @@
-
+#logregpage{
+	height: 100vh;
+	overflow: hidden;
+}
 .login-reg-cont{
+	overflow: hidden;
 	display: flex;
 	height: 100vh;
 	width: 200vw;
@@ -26,12 +30,13 @@
 .login-background{
 	position: relative;
 	height: 100vh;
+	overflow: hidden;
 	width: 100vw;
 	background: rgb(221,214,243);
   background: linear-gradient(90deg, rgba(221,214,243,1) 25%, rgba(250,172,168,1) 100%);
 }
 .reg-background{
-
+overflow: hidden;
 	position: relative;
 	height: 100vh;
 	width: 100vw;

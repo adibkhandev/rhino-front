@@ -11,19 +11,26 @@ import Cart from './all-pages/Cart'
 import Bill from './all-pages/Bill'
 import Reviewer from './all-pages/Reviewer'
 import LogReg from './all-pages/Log-reg'
+import Nav from "./all-pages/Nav"
 import {Taka} from "./all-pages/Components"
+import {BrowserRouter , Routes,Route,Link} from "react-router-dom"
 const App = () => {
   return (
      <>
-     <Reviewer></Reviewer>
-     {/*<Bill></Bill>*/}
-     {/*<LogReg></LogReg>*/}
-       {/*<Cart></Cart>*/}
-      {/*<Landing/>
-      <RunningOut/>
-      <MostPopular/>
-      <Searched/>
-      <Post></Post>*/}
+          <BrowserRouter>
+            <Routes>
+            
+              <Route path="/" element={<Landing/>} ></Route>
+              <Route path="/categories" element={<Categories/>} ></Route>
+              <Route path="/cart" element={<Cart/>} ></Route>
+              <Route path="/post" element={<Post/>} ></Route>
+              <Route path="/searched" element={<Searched/>} ></Route>
+              <Route path="/bill" element={<Bill/>} ></Route>
+              <Route path="/reviewer" element={<Reviewer/>} ></Route>
+              <Route path="/login" element={<LogReg/>} ></Route>
+             
+            </Routes>
+          </BrowserRouter>
      </>
   )
 }

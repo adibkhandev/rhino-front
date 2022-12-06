@@ -1,4 +1,7 @@
-
+.land{
+	position: relative;
+	
+}
 input , button{
 	outline:none;
 	border:none;
@@ -7,7 +10,8 @@ input , button{
 }
 .page1{
 	height: 100vh;
-	background-color: black;
+	background: url('landing-background.jpg');
+	background-repeat: no-repeat;
 	background-size:cover;
 	overflow: hidden;
 	position:relative;
@@ -19,6 +23,8 @@ input , button{
 .logo-image{
 	height: 3em;
 	margin: 2em;
+	
+
 }
 .sidenavbar{
 	display: flex;
@@ -34,15 +40,12 @@ input , button{
 		margin-bottom: 1.6em;
 	}
 }
-.nav-cont{
-	display: flex;
-	justify-content: space-between;
-	align-items:center;
-	width: 85vw;
-}
+
 .hero-section{
 	display: flex;
 	z-index: 1;
+	position: absolute;
+    bottom: 0;
     .parts{
     	letter-spacing: 0.35em;
 
@@ -142,4 +145,9 @@ input , button{
 		height:60%;
 		transform: rotate(90deg);
 	}
+}
+.dissolves{
+	opacity: 0;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
 }

@@ -1,71 +1,64 @@
 import React from 'react'
-
+import Nav from './Nav'
 const Categories = () => {
 	return (
-		<div className="page4">
-		  <div className="content">
-			
-		
+        <div className="whole-page-cat">
+        	<Nav colour={"ash"} visible={true} stick={false} ></Nav>
+        	<Content></Content>
+        </div>
+	)
+}
+const Content =()=>{
+	
 
-           <div className="functionality">
-           	 <div className="title">
-           	 	<img src="images/menu.png" alt="" className="category-icon"/>
-           	 	<h1 className="category-header">
-           	 		Categories
-           	 	</h1>
-           	 </div>
-           	 <div className="buttons">
-           	 	<button className="func-but">
-           	 	 <img src="images/ham.png" alt="" className="icon"/>
-           	 	</button>
-           	 	<button className="func-but">
-           	 	 <img src="images/slider-tool.png" alt="" className="icon"/>
-           	 	</button>
-           	 </div>
+	return(
+   <div className="content-cont">
+      	
+     <div className="top">
+      <div className="aside">
+      	<div className="first-row">
+      	   <div id="box-1" className="boxes">
+             <img src="images/gojo.jpg" alt=""/>
+              <h1>ANIME GOODS</h1>
+           </div>	
+           <div id="box-2" className="boxes">
+            <img src="images/garo.jpg" alt=""/>
+            <h1>MANGA</h1>
+           </div>
+      	</div>
+      	   
+
+           <div className="second-row">
+           	<div id="box-3" className="boxes">
+            <img src="images/asta.jpg" alt=""/>
+            <h1>NOVEL</h1>
+           </div>
            </div>
 
-
-           <div className="categories">
-           	 <div className="category">
-           	 	<img src="" alt="" className="category-image"/>
-           	 	<h1 className="category-title">
-           	 		
-           	 	</h1>
-           	 </div>
-           	 <div className="category">
-           	 	<img src="" alt="" className="category-image"/>
-           	 	<h1 className="category-title">
-           	 		
-           	 	</h1>
-           	 </div>
-           	 <div className="category">
-           	 	<img src="" alt="" className="category-image"/>
-           	 	<h1 className="category-title">
-           	 		
-           	 	</h1>
-           	 </div>
-           	 <div className="category">
-           	 	<img src="" alt="" className="category-image"/>
-           	 	<h1 className="category-title">
-           	 		
-           	 	</h1>
-           	 </div>
-           	 <div className="category">
-           	 	<img src="" alt="" className="category-image"/>
-           	 	<h1 className="category-title">
-           	 		
-           	 	</h1>
-           	 </div>
-           	 <div className="category">
-           	 	<img src="" alt="" className="category-image"/>
-           	 	<h1 className="category-title">
-           	 		
-           	 	</h1>
-           	 </div>
-           </div>
-
-          </div> 
-		</div>
+      </div>
+      <div className="right-side">
+      	<div id="box-4" className="boxes">
+             <img src="images/dabi.jpg" alt=""/>
+             <h1>LAMPS</h1>
+         </div>
+      </div>
+            
+      </div>
+        
+        
+        
+        <div className="bottom">
+        	<div id="box-5" className="boxes">
+         <img src="images/kaneki.jpg" alt=""/>
+         <h1>ACCESSORIES</h1>
+        </div>
+        <div id="box-6" className="boxes">
+         <img src="images/tanjiro.jpg" alt=""/>
+         <h1>ACTION FIGURES</h1>
+        </div>
+        </div>
+    </div>
+      
 	)
 }
 

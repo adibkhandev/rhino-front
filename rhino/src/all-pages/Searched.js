@@ -27,14 +27,14 @@ const Searched = () => {
             		</div>
             		<div className="categories">
             			<h1 className="category">Action Figures</h1>
+            			<h1 className="category">Manga</h1>
+            			<h1 className="category">Novel</h1>
+            			<h1 className="category">Lamps</h1>
+            			<h1 className="category">Anime Goods</h1>
+            			<h1 className="category">Accessories</h1>
+            			{/*<h1 className="category">Action Figures</h1>
             			<h1 className="category">Action Figures</h1>
-            			<h1 className="category">Action Figures</h1>
-            			<h1 className="category">Action Figures</h1>
-            			<h1 className="category">Action Figures</h1>
-            			<h1 className="category">Action Figures</h1>
-            			<h1 className="category">Action Figures</h1>
-            			<h1 className="category">Action Figures</h1>
-            			<h1 className="category">Action Figures</h1>
+            			<h1 className="category">Action Figures</h1>*/}
             		</div>
             		<div className="filter">
             			<h1 className="title">

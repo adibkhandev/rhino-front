@@ -1,3 +1,8 @@
+@font-face {
+    font-family:Komigo;
+    src: url(../Komigo.ttf);
+}
+  
 @mixin Font($fontsize,$fontweight){
 	font-style: 'Manrope', sans-serif;
 	font-weight: $fontweight;
@@ -8,17 +13,95 @@
 	font-weight: $fontweight;
 	font-size: $fontsize;
 }
+@mixin FancierFont($fontsize,$fontweight){
+	font-family: Komigo;
+	font-weight: $fontweight;
+	font-size: $fontsize;
+}
 $border-purple: #280042;
 $fill-purple: #19001e;
-@import './bill','./cart','./component','./populars','./landing','./logreg','./navigation','./post','./runningout','./searched','./reviewer';
+@import './bill','./cart','./component','./categories','./populars','./landing','./logreg','./navigation','./post','./runningout','./searched','./reviewer','./nav';
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
+@keyframes appeared {
+	0%{
+          opacity: 0;
+         
+	}
+	100%{
+            opacity: 1;
+            
+	}
+}
+@keyframes side-e-bhaya {
+	0%{
+		opacity: 1;
+		display: flex;
+	}
+	90%{
+		opacity: 0;
+		width: 0;
+		margin: 0;
+		
+	}
+	100%{
+		opacity: 0;
+		width: 0;
+		margin: 0;
+		
+	}
+}
+@keyframes goner {
+	0%{
+		opacity: 1;
+		
+	}
+	100%{
+		opacity: 0;
+		
+	}
+}
 
+@keyframes side-e-bhaya-2 {
+	0%{
+		
+	}
+		100%{
+		margin-left: 15vw;
+		
+	}
+}
+html {
+  scroll-behavior: smooth;
+}
 *{
 	margin: 0;
 	padding: 0;
 
 
+}
+a{
+	 text-decoration: none;
+	color: inherit;
+	&:hover{
+		outline: none;
+	}
+}
+a.nostyle:link {
+    text-decoration: inherit;
+    color: inherit;
+   
+}
+button{
+	@include Font(0.75rem,100);
+}
+a.nostyle:visited {
+    text-decoration: inherit;
+    color: inherit;
+    
+}
+button , img , h1{
+	cursor: pointer;
 }
 html {
     overflow: scroll;

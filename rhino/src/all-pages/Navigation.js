@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {Link} from "react-router-dom"
 const Navigation = () => {
   return (
     <>
@@ -26,7 +26,10 @@ let Search =()=>{
     <>
     <div className="search-bar">
     <button className="search-btn">
-      <img src="images/search-ash.png" alt="" className="search-img"/>
+      <Link to="./searched">
+         <img src="images/search-ash.png" alt="" className="search-img"/>
+      </Link>
+     
     </button>
     <input type="text" placeholder="Search products"/>  
     </div>
@@ -39,8 +42,8 @@ let Search =()=>{
 let Logo =()=>{
   
   return(
-    <div className="logo">
-     <img src="images/rhino-logo.png" alt="" className="logo-image"/>
+    <div className="landing-logo">
+     <img src="images/rhino-logo-white.png" alt="" className="logo-image"/>
     </div>
   )
 }
@@ -48,11 +51,19 @@ let Sidenav =()=>{
 
   return(
     <div  className="sidenavbar">
+      <Link to="./login" >
       <img src="images/account-white.png" alt="" className="nav-image"/>
+      </Link>
       <div className="redsapce"></div>
-      <img src="images/shopping-bag-white.png" alt="" className="nav-image"/>
+       <Link to="./cart" >
+          <img src="images/shopping-bag-white.png" alt="" className="nav-image"/>
+       </Link>
+      
       <div className="redsapce"></div>
-      <img src="images/love-white.png" alt="" className="nav-image"/>
+      
+         <img src="images/love-white.png" alt="" className="nav-image"/>
+      
+     
       <div className="redsapce"></div>
     </div>
   )
@@ -65,7 +76,9 @@ let Textnav =()=>{
      <>
          <div className="textnav">
            <h1 className="nav-btn">about</h1>
-           <h1 className="nav-btn">categories</h1>
+           <h1 className="nav-btn">
+             <Link to="categories" >categories</Link>
+           </h1>  
            <h1 className="nav-btn">explore</h1>
          </div>
      </>

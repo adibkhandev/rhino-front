@@ -1,14 +1,19 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Navigation from './Navigation-ash'
+import Nav from './Nav'
 import {Taka} from "./Components"
 const Bill = () => {
 	let list = [0,1,2,3]
+	let [billed,setBilled]=useState(false)
 	return (
 		<>
-		<Navigation colour={"ash"} > </Navigation>
+		<div className="total-bill">
+			
+		<div   className={billed?"int-bill off":"int-bill"  }>
+		        	<Nav colour={"ash"} visible={true} stick={false} ></Nav>
 		<div className="bill-page" >
 		 
-		 <div className="content">
+		 <div onClick={()=>setBilled(false)} className="content">
 			 <div className="bill">
 				<div className="items">
 					{list.map((list)=>{
@@ -133,9 +138,30 @@ const Bill = () => {
 				</div>
 			</div>
 		 </div>
-		 <button className="checkout-btn">
+		 <button onClick={()=>setBilled(true)} className="checkout-btn">
 		 	Confirm Order
 		 </button>
+		</div>
+			
+		</div>
+
+		<div className={billed?"ext-bill":"poof"}>
+			<img src="images/order-cover.jpg" alt=""/>
+			<div className="parts-ext">
+				<h1>Your order has been placed .</h1>
+			<div className="buttonS">
+			<button id="btn-explore" >
+				Explore more
+			</button>
+			<button id="btn-order">
+				Order list
+			</button>
+				
+			</div>
+			</div>
+				
+			
+		</div>
 		</div>
 		</>
 	)

@@ -1,12 +1,14 @@
 import React from 'react'
 import Navigation from './Navigation-ash' 
+import Nav from './Nav'
 import {Taka} from "./Components"
+import {Link} from "react-router-dom"
 const Cart = () => {
 	let list = [0,1,2]
 	return (
 		
 			<div className="cart-page">
-			<Navigation colour={"ash"} />
+			<Nav colour={"ash"} visible={true} stick={false} ></Nav>
 			<div className="cart">
 				<div className="desc">
 					<div className="cover">
@@ -49,6 +51,12 @@ const Cart = () => {
 					<h1 className="net-header" >Net total  :</h1>
 					<Taka  num={"zero"} taka={"2200"} ></Taka>
 				</div>
+				<button className="bbut">
+				   <Link to="/bill">
+				   	Buy
+				   </Link>
+					
+				</button>
                
 			</div>
 		</div>

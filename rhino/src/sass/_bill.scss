@@ -1,3 +1,52 @@
+
+.total-bill{
+	position: relative;
+	.int-bill{
+		transition: 1s ease-in-out;
+	}
+	.ext-bill{
+	    // display: block;
+	    // flex-direction: column;
+	    // justify-content: center;
+	    // align-items: center;
+	    animation-name: appeared;
+	    animation-timing-function: ease-in-out;
+	    animation-duration: 0.5s;
+	    animation-fill-mode: forwards;
+	    z-index: 2;
+        
+		position: relative;
+	    overflow: hidden;
+		position: absolute;
+		top: 14%;
+		margin-left: 37.4vw;
+		width: 28vw;
+		height: 78vh;
+		background-color: white;
+		border-radius: 5px;
+		h1{
+			position: absolute;
+			background-color: #B1B2B5;
+			opacity: 0.8;
+			
+			@include FancyFont(3em,100);
+			text-align: center;
+			width: 70%;
+			border-radius: 4px;
+			padding: 0.4rem 0.7rem;
+			
+			color: white;
+		}
+		img{
+			position: absolute;
+			top: 0;
+			left: -80%;
+			height: 140%;
+			z-index: 1;
+		}
+		
+	}
+}
 .bill-page{
 	width: 100vw;
 	height: 100vh;
@@ -172,3 +221,59 @@
 		border-radius: 4px;
 	}
 }
+.off{
+	filter: blur(15px);
+	transition: 3s ease-in-out;
+}
+.poof{
+	display: none;
+	opacity: 0;
+	transition: 1s ease-in-out;
+}
+.parts-ext{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	z-index: 2;
+	margin-top: 26%;
+	h1{
+
+	}
+	.buttonS{
+		margin-top: 33%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width:73.5%;
+		button{
+			width: 76%;
+			height: 5.8rem;
+			margin-bottom: 1.6em;
+			border-radius: 40px;
+			@include Font(0.8rem,100);
+			border-width: 2.5px;
+			border-style: solid;
+
+		}
+	}
+
+}
+#btn-explore{
+		
+		background-color: #525252;
+		color: whitesmoke;
+		border-color: #525252;
+		
+	
+	}
+#btn-order{
+		
+		border-color: #525252;
+		color: #525252;
+		
+	
+	}

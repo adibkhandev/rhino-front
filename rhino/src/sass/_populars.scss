@@ -1,4 +1,43 @@
+.page3{
+	height: 80vh;
+	width: 100vw;
+	background-color: #19001E;
+	display: flex;
+	align-items:center;
+	justify-content: center;
+	.description{
+		// background-color: bisque;
+		height: 30em;
+		width: 35em;
+		display: flex;
+		flex-direction: column;
+		justify-content:center;
+		h1{
+			font-family: 'Bangers', cursive;
+			color: white;
+			font-weight: 400;
+		}
+		.heading{
+            font-size: 4em;
+            margin-bottom: 3em;
+		}
+		.discon{
+			font-size: 1.4em;
+			margin-bottom: 0.2em;
+		}
+		.subheading{
+			margin-bottom: 1em;
+		}
+		button{
+			font-size: 0.65em;
+            width: 15em;
+            height: 4.5em;
+            border-radius:5px;
+            color: #19001E ;
 
+		}
+	}
+}
 .populars{
 		
 		height: 30em;

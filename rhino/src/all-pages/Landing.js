@@ -1,28 +1,73 @@
-import react from 'react'
+import react ,{useState,useEffect,useRef}from 'react'
 import Navigation from './Navigation'
 import '../sass/main.scss'
-let Landing =()=>{
-  
+import RunningOut from './RunningOut'
+import MostPopular from "./MostPopular"
+import Nav from './Nav'
+
+let Landing = ()=>{
+  let [isout,setIsout] = useState(true)
+  let [searchon,setSearchon]= useState(true)
+ 
   return(
     <>
-       <div className="page1" style={
-        {
-          background: "url('images/b%26wcarousel-background-p1.jpg')",
-          backgroundRepeat : 'no-repeat',
-          backgroundSize:'cover'
+    <div  className="land">
+      <Nav  stick={true} ase={true} searchon={searchon?true:false} visible={isout} colour={'white'} ></Nav>
+     <Home scrolling={setSearchon} referer={setIsout}  ></Home>
+     <RunningOut  ></RunningOut>
+     <MostPopular></MostPopular>
+    </div>
+     
+     </>
+  )
+}
+
+let Home =(props)=>{
+  let [buttonthere,setButtonthere] = useState(true)
+  let myref = useRef();
+
+   useEffect(() => {
+     
+     
+
+
+    
+    return () => {
+      let observer = new IntersectionObserver ((entries,options)=>{
+        let entry = entries[0];
+        props.referer(entry.isIntersecting)
+        console.log(entry)
+
+      })
+      if(myref.current){
+      observer.observe(myref.current)
+  }
         }
-       }>
-           <Navigation>
+  }, [])
+
+   let scroller=()=>{
+     if(window.scrollY>450){
+         setButtonthere(false)
+         console.log(buttonthere)
+     }
+     if(window.scrollY<450){
+      setButtonthere(true)
+     }
+   }
+   props.scrolling(buttonthere)
+   window.addEventListener('scroll',scroller)
+  return(
+    <>
+       <div className="page1">
          
-           </Navigation>
-           <div className="hero-section">
+           <div  ref={myref} className="hero-section">
            <div className="parts" id="part1">
              <Heading>
          
            </Heading>
            </div>
            <div className="parts" id="part2">
-             <Popup>
+             <Popup >
          
            </Popup>
            </div>
@@ -30,7 +75,7 @@ let Landing =()=>{
            
            </div>
            
-           <Scrolldown>
+           <Scrolldown visibility={buttonthere} >
          
            </Scrolldown>
 
@@ -40,11 +85,13 @@ let Landing =()=>{
     </>
   )
 }
-let Scrolldown = ()=>{
+let Scrolldown = (props)=>{
   
   return(
     <>
-      <button className="arrow-down-button">
+      <button onClick={()=>{
+        window.scroll(0,1000)
+      }} className={props.visibility?"arrow-down-button appear" : "arrow-down-button flee"}>
        <img src="images/arrow-icon.png" alt="" className="scrolldown"/>
       </button>
     </> 
