@@ -48,7 +48,7 @@ let Home =(props)=>{
    let scroller=()=>{
      if(window.scrollY>450){
          setButtonthere(false)
-         console.log(buttonthere)
+        
      }
      if(window.scrollY<450){
       setButtonthere(true)

@@ -43,16 +43,17 @@
 				right: 1.2%;
 		}
 		input{
-			background-color: #c8c8c8;
+			background-color: #f3f3f3;
 
 			width: 100%;
 			padding: 1em 0em ;
 			padding-bottom: 8em;
-			border: 2px #bfbfbf solid;
+			box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;  
 			border-radius: 3px;
 			&::placeholder{
-				color: #3d3d3d;
+				color: grey;
 				padding-left :1.1em ;
+				@include Font(0.8rem,100);
 			}
 
 

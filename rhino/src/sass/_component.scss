@@ -4,6 +4,16 @@
 	align-items: center;
 
 }
+.minier{
+
+	h1{
+		@include Font(0.86em,100);
+		margin-left: 2.4px;
+	     }
+	  img{
+		height: 0.8em;
+	}
+}
 .mini{
 	h1{
 		@include Font(1em,100);
@@ -49,5 +59,40 @@
 	.star{
 		margin: 0 3px;
 		height:1.8em;
+		fill: blue;
 	}
+}
+.filter-widget{
+
+.filter-inputs{
+	margin-bottom: 0.4em;
+	height: 1.2rem;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	input{
+		border-radius: 3px;
+		color: #636363;
+		@include Font(0.8em,100);
+		padding: 0.1rem 0.5rem;
+		width: 3.5em;
+		background-color: #ececec;
+	}
+}
+.desc{
+	
+	border-radius: 3px;
+	background-color: #B1B2B5;
+   width: 100%;
+   height: 1.2rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   h1{
+   	color: white;
+   	text-align: center;
+   	@include Font(0.8rem,100);
+   }
+}
+
 }

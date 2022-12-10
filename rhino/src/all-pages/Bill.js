@@ -1,7 +1,8 @@
 import React,{useState} from 'react'
 import Navigation from './Navigation-ash'
+import {Link} from "react-router-dom"
 import Nav from './Nav'
-import {Taka} from "./Components"
+import {Taka,Counter} from "./Components"
 const Bill = () => {
 	let list = [0,1,2,3]
 	let [billed,setBilled]=useState(false)
@@ -26,14 +27,10 @@ const Bill = () => {
                               		<h1>Attack on titan Vol. 1</h1>
                               	</div>
                               	<div className="trio">
-                              		<Taka num={"mini"} taka={"220"} ></Taka>
-                              		<div className="counter">
-                              		    <img src="images/arrow-icon.png" alt="" className="arrow left"/>
-                              			<h1 className="count">1</h1>
-                              			<img src="images/arrow-icon.png" alt="" className="arrow right"/>
-                              		</div>
+                              		<Taka num={"minier"} taka={"220"} ></Taka>
+                              		<Counter></Counter>
                               		
-                              		<Taka num={"mini"} taka={"1220"} ></Taka>
+                              		<Taka num={"minier"} taka={"1220"} ></Taka>
                               	</div>
                               </div>
 						)
@@ -153,9 +150,12 @@ const Bill = () => {
 			<button id="btn-explore" >
 				Explore more
 			</button>
+			<Link to="/order" >
 			<button id="btn-order">
 				Order list
 			</button>
+				
+			</Link>
 				
 			</div>
 			</div>

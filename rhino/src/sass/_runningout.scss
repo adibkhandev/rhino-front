@@ -37,6 +37,7 @@
 		}
 	}
 	.images{
+      
 		padding: 0 0.3vw;
 		overflow: hidden;
 		width: 35vw;
@@ -89,8 +90,30 @@
 	}
 
 }
-.anime{
-    animation-name: goner;
-    animation-duration: 1s;
+
+.ghost{
+	animation-name: animation-1;
+	animation-duration: 0.7s;
+	animation-timing-function: ease-out;
+	animation-fill-mode: forwards;
+}
+.human{
+	animation-name: animation-2;
+	animation-duration: 0.7s;
+	animation-timing-function: ease-out;
+	animation-fill-mode: forwards;
+
+}
+.ghost-text{
+	animation-name: animation-3;
+	animation-duration: 0.7s;
+	animation-timing-function: ease-out;
+	animation-fill-mode: forwards;
+}
+.human-text{
+	animation-name: animation-4;
+	animation-duration: 0.7s;
+	animation-timing-function: ease-out;
+	animation-fill-mode: forwards;
 
 }

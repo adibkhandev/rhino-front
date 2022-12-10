@@ -1,6 +1,8 @@
-import React from 'react'
-
+import React,{useState} from 'react'
+import {Link} from "react-router-dom"
+let array = [0,1,2,3] 
 const MostPopular = () => {
+	
 	return (
 		<div className="page3">
 			<div className="description">
@@ -14,43 +16,25 @@ const MostPopular = () => {
 			</div>
 			
 			<div className="populars">
-				
-					<div className="card">
-						<img src="images/aot.jpg" alt="" className="card-image"/>
-						<h1 className="card-title">Attack on Titan Vol. 1</h1>
-						<div className="price">
-						 <img src="images/taka.png" alt="" className="price-icon"/>
-						 <h1 className="card-price">280</h1>
-						</div>
+			        {array.map((item)=>{
+			        	return(
+                         <Link to="./post" >
+					      <div className="card">
+						      <img src="images/aot.jpg" alt="" className="card-image"/>
+						      <h1 className="card-title">Attack on Titan Vol. 1</h1>
+						      <div className="price">
+						       <img src="images/taka.png" alt="" className="price-icon"/>
+						       <h1 className="card-price">280</h1>
+						      </div>
 						
-					</div>
-					<div className="card">
-						<img src="images/aot.jpg" alt="" className="card-image"/>
-						<h1 className="card-title">Attack on Titan Vol. 1</h1>
-						<div className="price">
-						 <img src="images/taka.png" alt="" className="price-icon"/>
-						 <h1 className="card-price">280</h1>
-						</div>
-						
-					</div>
-					<div className="card">
-						<img src="images/aot.jpg" alt="" className="card-image"/>
-						<h1 className="card-title">Attack on Titan Vol. 1</h1>
-						<div className="price">
-						 <img src="images/taka.png" alt="" className="price-icon"/>
-						 <h1 className="card-price">280</h1>
-						</div>
-						
-					</div>
-					<div className="card">
-						<img src="images/aot.jpg" alt="" className="card-image"/>
-						<h1 className="card-title">Attack on Titan Vol. 1</h1>
-						<div className="price">
-						 <img src="images/taka.png" alt="" className="price-icon"/>
-						 <h1 className="card-price">280</h1>
-						</div>
-						
-					</div>
+					      </div>
+				   	
+				         </Link>
+			        	)
+			        })}
+				  
+					
+
 					
 				</div>
 			

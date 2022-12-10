@@ -1,4 +1,5 @@
 import React from 'react'
+import Order from './all-pages/Order'
 import Landing from './all-pages/Landing'
 import RunningOut from './all-pages/RunningOut'
 import MostPopular from './all-pages/MostPopular'
@@ -10,6 +11,7 @@ import Navigation from './all-pages/Navigation-ash'
 import Cart from './all-pages/Cart'
 import Bill from './all-pages/Bill'
 import Reviewer from './all-pages/Reviewer'
+import Liked from './all-pages/Liked'
 import LogReg from './all-pages/Log-reg'
 import Nav from "./all-pages/Nav"
 import {Taka} from "./all-pages/Components"
@@ -18,8 +20,9 @@ const App = () => {
   return (
      <>
           <BrowserRouter>
+
             <Routes>
-            
+               
               <Route path="/" element={<Landing/>} ></Route>
               <Route path="/categories" element={<Categories/>} ></Route>
               <Route path="/cart" element={<Cart/>} ></Route>
@@ -27,7 +30,9 @@ const App = () => {
               <Route path="/searched" element={<Searched/>} ></Route>
               <Route path="/bill" element={<Bill/>} ></Route>
               <Route path="/reviewer" element={<Reviewer/>} ></Route>
+              <Route path="/liked" element={<Liked/>} ></Route>
               <Route path="/login" element={<LogReg/>} ></Route>
+              <Route path="/order" element={<Order/>} ></Route>
              
             </Routes>
           </BrowserRouter>

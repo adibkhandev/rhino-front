@@ -1,364 +1,87 @@
-
-.search-page{
-	height: 120vh;
-	width: 100vw;
+.searched-page{
 	display: flex;
 	flex-direction: column;
-	align-items:center;
-	justify-content: center;
-	// .nav{
-	// 	margin-top: 1.4vw;
-	// 	height: 16vh;
-	// 	width: 100vw;
-	// 	// overflow: hidden;
-	// 	display: flex;
-	// 	justify-content: space-between;
+	justify-content: flex-start;
+	align-items: center;
+	position: relative;
+	height: auto;
+	width: 100vw;
+	.nav-contain{
+      z-index: 1;
+	}
+	.all{
+		width: 100;
+		  z-index:2 ;
+			margin-top: 10%;
+	}
+	.filter-widget{
+	  margin-bottom: 0.6em;
+		width: 80vw;
+	}
+	.cards{
+		overflow: hidden;
+		display: grid;
+		grid-template-columns: repeat(10, 0.8fr);
+		grid-template-rows: repeat(2, 20em);
+		grid-row-gap: 1em;
+		grid-column-gap: 1em;
 		
-	// 	.logo{
-	// 		width: 20em;
-	// 		height: 1em;
-	// 		img{
-	// 			width: 6em;
-	// 			margin-left: 2em;
-	// 			margin-top: 1.5em;
-
-	// 		}
-	// 	}
-	// 	.textnav-ash{
-	// 		color: #4B4A4A;
-	// 		@include FancyFont(0.7em,100);
-	// 		width: 20%;
-	// 		display: flex;
-	// 		justify-content: space-between;
-	// 		margin-top: 2.7rem;
-	// 		margin-right: 10rem;
-	// 	}
-	// 	.sidenav{
-	// 		height: 12.8em;
-	// 		width: 4em;
-	// 		display: flex;
-	// 		flex-direction: column;
-	// 		align-items:center;
-	// 		margin-top: 1.4em;
-	// 		margin-right: 1.6em;
-	// 		.imgs{
-	// 			margin-bottom: 1.2em;
-	// 		}
-	// 		img{
-	// 			height: 2.6vw;
-	// 		}
-	// 		#icon-1{
-	// 			img{
-	// 			height: 2.8vw;
-	// 			margin-bottom: 0.6em;
-	// 		}
-	// 		}
-	// 		#icon-3{
-	// 			img{
-	// 			margin-left: 3em;
-	// 		}
-	// 		}
-			
-			
-	// 	}
-		
-
-	// }
-
-	.content{
-		height: 90vh;
-		width: 88em;
-		// background-color: burlywood;
-		display: flex;
-		.sidebar{
-			height: 90%;
-			width: 14em;
-			background-color: #f8f8f8;
-			box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;			margin-top: 0.8em;
-			margin-right: 1.2em;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			.desc,.filter{
-				margin-top: 1em;
-				@include Font(1.2em,300);
-				width: 68%;
-				display: flex;
-				align-items:center;
-				justify-content: space-between;
-
-
-				.turnoff{
-					height: 0.17em;
-					width: 0.8rem;
-					background-color: grey;
-				}
-			}
-			.filter{
-				margin-top: 2.4em;
-			}
-			.categories{
-				margin-top: 2rem;
-				@include FancyFont(1em,100);
-				color: grey;
-				.category{
-					margin-top: 0.5em;
-				}
-
-			}
-			h1{
-				@include Font(1.15em,100);
-			}
-		}
-		.others{
-           height: 100%;
-           width: 72em;
-           // background-color: chartreuse;
-           .functions{
-           	height: 16%;
-           	width: 100%;
-           	// background-color: chocolate;
-           	.searchbar{
-           		height: 4.5em;
-           		width: 100%;
-           		// background-color: aquamarine;
-           		display: flex;
-           		align-items:center;
-           		img{
-           			height: 4em;
-
-           		}
-           		input{
-           			height: 4.6em;
-           			width: 96%;
-           			padding-left: 2em;
-           			border-radius:4px 0 0 4px;
-           			font-size: 0.7em;
-           			border:2px solid #650278;
-
-           		}
-           		.search-btn{
-           			font-size: 0.7em;
-           			height: 4.6em;
-           			width: 4.6em;
-           			display: flex;
-           			justify-content: center;
-           			align-items:center;
-           			
-           			background-color: #19001e;
-           			border-radius:0 4px 4px 0;
-           			outline:2px solid #280042;
-           		}
-           	}
-           }
-           .results{
-           	height: 87%;
-           	width: 100%;
-           	// background-color:seashell;
-           	display: flex;
-           	flex-direction: column;
-           
-           	
-           	.stats{
-           		h1{
-           		 @include Font(1.1em,200);
-           		 margin-bottom: 10px;
-           		}
-           	}
-           	.cards{
-           		display: grid;
-           		grid-template-rows: repeat(2, 1fr);
-           		grid-template-columns:repeat(6, 1fr);
-           		justify-content: center;
-           		grid-gap:1em 2.42em;
-           		// &:nth-child(6n+1){
-             //        grid-columns:0/1;
-             //        grid-rows:0/1;
-           		// }
-           		// &:nth-child(6n+2){
-             //        grid-columns:1/2;
-             //        grid-rows:0/1;
-           		// }
-           		.card{
-           			height: 21rem;
-           			width: 10rem;
-           			background-color: white;
-           			box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
-           			.title{
-           				@include Font(1em,100);
-           				margin-bottom: 0.2em;
-           				margin-left: 0.15em;
-           				margin-top: 0.1em;
-           			}
-           			.prod-img{
-           				width:10rem;
-           			}
-           			.price{
-           				display: flex;
-           				align-items:center;
-           				margin-bottom: 0.85em;
-           				margin-left: 0.15em;
-           				h1{
-           					@include Font(1em,100);
-
-
-           				}
-           				
-           				img{
-           					height: 1rem
-           				}
-           				
-           			}
-           			.heart{
-           				height: 1rem;
-           				margin-right: 0.22em;
-           			}
-           			.price-num{
-           				margin-left: 0.22em;
-           			}
-           			.stars{
-           				margin-left: 0.16em;
-           				img{
-           					height: 0.7rem;
-           				}
-
-           			}
-           			.last{
-           				display: flex;
-           				justify-content: space-between;
-
-           			}
-           			.add{
-           				@include Font(0.8em,100);
-           				margin-left: 0.22em;
-           			}
-           		}
-               
-            }
-           }
-		}
+		width: 80vw;
+		height: auto;
 	}
 
-    
+	.card{
+
+		background-color: #efefef;
+		box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;  
+     height: 20em;
+     width: 7.15vw;
+
+     .title{
+     	width: 95%;
+     	margin-left: 5%;
+     	margin-bottom: 4% ;
+
+     }
+     .taka{
+     	h1{
+      font-weight: 200;
 }
-.func-buts{
-	height: 4em;
-	width: 100%;
-	background-color: white;
-	display: flex;
-	justify-content: flex-end;
-	align-items:center;
-	h1{
-		font-size: 0.605em;
-		font-family: 'Manrope', sans-serif;
-		font-weight: lighter;
+     	margin-bottom: 12%;
+     	margin-left: 5%;
+     }
+     .stars{
+     	margin-left: 3%;
+     	margin-bottom: 3%;
+     }
+ 
 	}
-	.buts{
-		height: 3rem;
-		width: 8.2rem;
-		margin-left:5px ;
-        border-radius:4px;
+	.card-img{
+		width: 100%;
 	}
-	.secs{
-		height: 100%;
-		width: 50%;
+	.cart-like{
 		display: flex;
-		align-items:center;
-		justify-content: center;
-		
-		
-
+		justify-content: space-between;
+    margin-left: 5%;
+		width: 90%;
+		h1{
+		@include Font(0.7rem,100);	
+		}
 	}
-	#but1{
-		background-color: white;
-		border: 2px  $border-purple solid;
-		display: flex;
-		justify-content: center;
-		align-items:center;
+	.title{
+		@include Font(0.8rem,100);
+	}
+	.stars{
 		img{
-			height: 1.6em;
-			margin-left: 0.5em;
-			transform: rotate(90deg);
+			height: 0.7em;
+			margin: 0 1px;
 		}
+	}
+	.like{
 		
-
+		height: 0.8em;
+		img{
+			height:100%;
+		}
 	}
-	#but2{
-		display: flex;
-		border: 2px  $border-purple solid;
-	}
-	#num1{
-		background-color: $fill-purple ;
-		color: white;
-	}
-	#num2{
-		background-color: white;
-	}
-}
-.bottom-nav-cont{
-	width: 36em;
-    margin-top: 3vh;
-	justify-content: space-between;
-	display: flex;
-	align-items:center;
-	justify-content: center;
-	margin-left: 11.5vw;
-	img{
-		height: 2.3em;
-		margin:0 8px;
-		
-		
-	}
-	#left{
-		transform: rotate(180deg);
-	}
-}
-.cotainer{
-	width: 22.35em;
-	padding:0 10px;
-	height: 2.3em;
-	display: flex;
-	align-items:center;
-  overflow: hidden;
-  background-color: #19001e;
-  border-radius:4px;
-}
-.num-nav{
-	
-	width: 26em;
-	
-	display: flex;
-	
-	
-	align-items:center;
-	button{
-		@include Font(100,4.95em);
-	}
-	
-
-}
-.btn-act{
-	@include Font(100,0.75em);
-	transition: ease-in-out 0.75s;
-	background-color: white;
-	padding: 0.225em 0.55em;
-	margin: 0.4em 0.85em;
-	color: #19001e;
-  
-	border-radius:500em;
-	
-}
-.btn{
-	@include Font(100,0.5em);
-	transition: ease-in-out 0.75s;
-	color: white;
-	// margin:0 2em;
-	padding: 0.225em 0.55em;
-	margin: 0.4em 0.85em;
-	border-radius:500em;
-	background-color: transparent;
-	button{
-		@include Font(100,0.5em);
-	}
-   
 }

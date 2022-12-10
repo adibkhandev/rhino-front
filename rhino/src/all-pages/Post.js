@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import {Link} from "react-router-dom"
 const Post =()=>{
 	return(
 		<div className="post-page">
@@ -75,9 +76,11 @@ const WriteReview=()=>{
 
 	return(
        <>
+       <Link to="/reviewer" >
        <div className="review-container">
        	<img src="images/edit.png" alt="" className="review-image"/>
        </div>
+       </Link>
        </>
 	)
 }

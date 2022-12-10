@@ -1,7 +1,7 @@
 import React from 'react'
 import Navigation from './Navigation-ash' 
 import Nav from './Nav'
-import {Taka} from "./Components"
+import {Taka,Counter} from "./Components"
 import {Link} from "react-router-dom"
 const Cart = () => {
 	let list = [0,1,2]
@@ -35,11 +35,7 @@ const Cart = () => {
                               	</div>
                               	<div className="trio">
                               		<Taka num={"one"} taka={"220"} ></Taka>
-                              		<div className="counter">
-                              		    <img src="images/arrow-icon.png" alt="" className="arrow left"/>
-                              			<h1 >1</h1>
-                              			<img src="images/arrow-icon.png" alt="" className="arrow right"/>
-                              		</div>
+                              		<Counter></Counter>
                               		
                               		<Taka num={"one"} taka={"1220"} ></Taka>
                               	</div>
@@ -51,12 +47,12 @@ const Cart = () => {
 					<h1 className="net-header" >Net total  :</h1>
 					<Taka  num={"zero"} taka={"2200"} ></Taka>
 				</div>
-				<button className="bbut">
 				   <Link to="/bill">
+				<button className="buy-but">
 				   	Buy
-				   </Link>
 					
 				</button>
+				   </Link>
                
 			</div>
 		</div>

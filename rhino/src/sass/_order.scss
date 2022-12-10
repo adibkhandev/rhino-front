@@ -1,0 +1,116 @@
+.order-page{
+	width: 100vw;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	 .orders{
+  width: 66%;
+  margin-top: 7%;
+ }
+ .order{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ .deliver{
+  margin-left: 2.2vw;
+  width: 25%;
+  height: 10rem;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px; 
+  @include FancyFont(0.8rem,100);
+  display: flex;
+  flex-direction:column ;
+  text-align: left;
+  justify-content: center;
+  align-items: center;
+
+
+  .deliver-time{
+    display: flex;
+    margin-bottom: 1em;
+ 
+    h1{
+       margin: 0 0.2em;
+    }
+  } 
+  .order-time{
+    display: flex;
+    h1{
+        margin: 0 0.2em;
+    }
+ 
+  } 
+ }
+
+ .item{
+  border-radius: 5px;
+ 	display: flex;
+ 	align-items: center;
+ 	width: 75%;
+ 	height: 10em;
+ 	
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;	
+  margin: 1em 0 ;
+ 	.image {
+ 		width: 17%;
+ 		margin-left: 4%;
+ 		img {
+ 	   height:6.5em;
+ 	  }
+ 	}
+ 	.title{
+ 		width: 34% ;
+ 		h1{
+ 			color:#a0a5ab;
+  		@include Font(1.6em,300);
+  	}
+ 	}
+ 	.trio{
+ 		margin-left: 3%;
+ 		display: flex;
+ 		width: 46%;
+  	justify-content: space-around;
+  	align-items: center;
+  	.counter{
+  		display: flex;
+  		align-items: center;
+  		img{
+  			height: 1.6em;
+  		}
+  		h1{
+  			@include Font(1.1em,100);
+        color: black;
+        background-color: #b1b2b5;
+  	  	padding: 0.2em 0.55em;
+  	  	border-radius: 40px;
+  		}
+  		.left{
+  			transform: rotate(180deg);
+  		}
+  		
+  		
+  	}
+ 	}
+ 
+ }
+}
+
+.purpled{
+  background-color: #a600ff;
+  h1{
+
+  color: white;
+  }
+}
+.ash{
+  background-color: #ececec;
+  .info-title{
+      color: #848481;
+    }
+     .time{
+      color: #b3b3b3;
+    }
+}

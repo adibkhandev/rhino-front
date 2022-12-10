@@ -55,6 +55,68 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+		 .items{
+  width: 40%;
+ }
+ .items{
+ 	width: 100%;
+ }
+ .content {
+     width: 60%;
+}
+ .item{
+  border-radius: 1px;
+ 	display: flex;
+ 	align-items: center;
+ 	width: 100%;
+ 	height: 13em;
+ 	background-color: #ececec;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;	
+  margin: 8px 0 ;
+ 	.image {
+ 		width: 17%;
+ 		margin-left: 3%;
+ 		img {
+ 	   height:8em;
+ 	  }
+ 	}
+ 	.title{
+ 		width: 34% ;
+ 		h1{
+ 			color:#a0a5ab;
+  		@include Font(1rem,300);
+  	}
+ 	}
+ 	.trio{
+ 		margin-right: 1em;
+ 		margin-left: 3%;
+ 		display: flex;
+ 		width: 46%;
+  	justify-content: space-around;
+  	align-items: center;
+  	.counter{
+  		display: flex;
+  		align-items: center;
+  		img{
+  			height: 1.6em;
+  		}
+  		h1{
+  			@include Font(1.1em,100);
+        color: black;
+        background-color: #b1b2b5;
+  	  	padding: 0.2em 0.55em;
+  	  	border-radius: 40px;
+  		}
+  		.left{
+  			transform: rotate(180deg);
+  		}
+  		
+  		
+  	}
+ 	}
+ 
+ }
+
 	.content{
 		width: 70%;
 		height: 60%;
@@ -62,7 +124,7 @@
 		display: flex;
 		.bill{
 			margin-right: 2em;
-			width: 50%;
+			width: 52%;
 			.item{
 				height: 7em;
 				.title{
@@ -250,7 +312,7 @@
 		align-items: center;
 		width:73.5%;
 		button{
-			width: 76%;
+			width: 24em;
 			height: 5.8rem;
 			margin-bottom: 1.6em;
 			border-radius: 40px;
@@ -265,7 +327,7 @@
 #btn-explore{
 		
 		background-color: #525252;
-		color: whitesmoke;
+		color: white;
 		border-color: #525252;
 		
 	
@@ -273,7 +335,7 @@
 #btn-order{
 		
 		border-color: #525252;
-		color: #525252;
+		color: #8f8f8f;
 		
 	
 	}

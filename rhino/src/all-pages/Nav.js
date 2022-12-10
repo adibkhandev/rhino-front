@@ -1,9 +1,10 @@
 import React,{useState,useEffect} from 'react'
 import {Link} from "react-router-dom"
+import Taka from './Components'
 
 const Nav = (props) => {
 	let [searchon,setSearchon] = useState(true)
-	
+	let list = [0,1,2]
 
 	return (
 
@@ -48,7 +49,11 @@ const Nav = (props) => {
                  </Link>
             	
             	</div>
-            	<div className="icon-conts"><img src={`images/love-${props.colour}.png`} alt=""/></div>
+            	<div className="icon-conts">
+                <Link to="/liked" >
+            	  <img src={`images/love-${props.colour}.png`} alt=""/>
+                </Link>
+            	</div>
             	<div className="icon-conts">
             	<Link to="/cart" >
             	 <img src={`images/shopping-bag-${props.colour}.png`} alt=""/>
