@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import Navigation from './Navigation-ash'
+import Nav from './Nav'
 
 const LogReg = () => {
 	let [logreg,setLogreg]=useState(0)
@@ -26,7 +27,7 @@ const Log = (props) => {
 	
     return(
        <div className="login-background">
-       <Navigation binary={props.binary} colour={"white"} />
+      <Nav binary={props.binary}  stick={true} ase={true} searchon={true}  colour={'white'}/>
        	
        	       	<div className={props.binary===0?"inputs":"inputs gone"}>
        		<h1 className="headline">
@@ -53,7 +54,7 @@ const Reg = (props) => {
     return(
 
        <div className="reg-background">
-       <Navigation binary={1} colour={"white"} />
+       <Nav binary={1}  stick={true} ase={true} searchon={true}  colour={'white'}/>
            <div className="login-inputs gone">
        		 <h1 className="headline">
        			Log in your account. 
@@ -75,7 +76,7 @@ const Reg = (props) => {
     return(
 
        <div className="reg-background">
-       <Navigation  binary={0} colour={"white"} />
+       <Nav binary={0}  stick={true} ase={true} searchon={true}  colour={'white'}/>
        	<div className="login-inputs">
        		 <h1 className="headline">
        			Log in your account. 

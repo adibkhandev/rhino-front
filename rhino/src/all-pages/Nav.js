@@ -12,7 +12,7 @@ const Nav = (props) => {
 		
 		
 
-		<div id={props.stick?"":"non-stick"} className={props.visible?"nav-contain":"nav-contain lost"}>
+		<div  id={props.stick?"":"non-stick"} className={props.visible?"nav-contain ":props.binary===1?"nav-contain inactive":props.binary===0?"nav-contain active":"nav-contain lost"}>
 			
 			<div className="rhino-logo">
 			     <Link to="/"></Link>

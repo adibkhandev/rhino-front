@@ -45,25 +45,7 @@ overflow: hidden;
 }
 #logregpage{
 	position: relative;
-	.ashnav{
-	  position: absolute;
-		display: flex;
-		justify-content: space-between;
-    transition: 1s cubic-bezier(.69,.17,.29,.87);
-	  transition-delay:2.45s ;
-		margin-top: 1%;
-		width: 100%;
-		z-index: 2;
-	}
-  .ashnav-active{
-	  transition: 1.5s cubic-bezier(.69,.17,.29,.87);
-	  margin-top: -20em;
-		display: flex;
-		justify-content: space-between;
-    z-index: 2;
-		
-		width: 100%;
-}
+
 	.luffy-1{
     position: absolute;
     bottom: -2%;
