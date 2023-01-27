@@ -1,11 +1,17 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useContext} from 'react'
 import {Link} from "react-router-dom"
 import Taka from './Components'
+import axios from 'axios'
+import Context from './Context'
 
 const Nav = (props) => {
 	let [searchon,setSearchon] = useState(true)
 	let list = [0,1,2]
-
+     let context = useContext(Context)
+     let data = context.user
+     let setSearch = context.setsearch
+     console.log(context,'ccc')
+     console.log(data,'d')
 	return (
 
 		<>
@@ -32,30 +38,29 @@ const Nav = (props) => {
             	<h1 className={`texters + ${props.colour}`}>Explore</h1>
             </div>
             <div id={props.ase?"":"less"} className={props.searchon?"searcher appear":"searcher none"}>
-            	<input placeholder="Search for products" type="text" className="searcher-inp"/>
-            	<div className="submit">
-            		<Link to="/searched">
-            		<button>
-            	     <img src="images/search-ash.png" alt=""/>
-            		</button>
-            		</Link>
-            	</div>
+            	
+            {/*search engine*/}
+        
+            	<SeachEngine  setSearch={setSearch} ></SeachEngine>
+
+            {/**/}
             </div>
             <div className="icon-nav">
                
             	<div className="icon-conts">
-            	 <Link to="/login" >
+            	 <Link to={"/login"} >
                	    <img src={`images/account-${props.colour}.png`} alt=""/>
                  </Link>
             	
             	</div>
             	<div className="icon-conts">
-                <Link to="/liked" >
+            
+                <Link to={context.user?"/liked":"/login"} >
             	  <img src={`images/love-${props.colour}.png`} alt=""/>
                 </Link>
             	</div>
             	<div className="icon-conts">
-            	<Link to="/cart" >
+            	<Link to={context.user?"/cart":"/login"} >
             	 <img src={`images/shopping-bag-${props.colour}.png`} alt=""/>
             	 </Link>
             	</div>
@@ -67,6 +72,39 @@ const Nav = (props) => {
 
 		
 		</>
+	)
+}
+
+let SeachEngine = ({setSearch}) =>{
+	let url = 'http://127.0.0.1:8000/search/'
+	let [searchtext,setSearchtext]=useState('')
+	// let handleSubmit=()=>{
+	// 	axios.post((url),{searched:searchtext})
+	// 		.then((response)=>{
+	// 		   	console.log(response.data)
+     //                setSearch(response.data)
+                  
+     //           })   
+	// 	     .catch((err)=>{
+	// 	     	console.log('hi')
+     //              console.log(err)
+	// 	     })
+			
+	// }
+	let handleSubmit =()=>{
+		setSearch(searchtext)
+	}
+	return(
+         <>
+         <input onChange={(e)=>setSearchtext(e.target.value)} placeholder="Search for products" value={searchtext} type="text" className="searcher-inp"/>
+            	<div className="submit">
+            		<Link to="/searched">
+            		<button onClick={handleSubmit}>
+            	     <img src="images/search-ash.png" alt=""/>
+            		</button>
+            		</Link>
+            	</div>
+         </>
 	)
 }
 

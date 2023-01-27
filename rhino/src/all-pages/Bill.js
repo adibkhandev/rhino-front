@@ -1,10 +1,27 @@
-import React,{useState} from 'react'
+import React,{useState,useContext} from 'react'
+import {useSelector,useDispatch} from 'react-redux'
 import Navigation from './Navigation-ash'
 import {Link} from "react-router-dom"
 import Nav from './Nav'
-import {Taka,Counter} from "./Components"
+import {Taka} from "./Components"
+import Counter from './Counter'
+import Context from './Context'
+import axios from 'axios'
 const Bill = () => {
 	let list = [0,1,2,3]
+	let data = useSelector((state)=> state.data)
+	let url = 'http://127.0.0.1:8000/orderplace/'
+	let url2 = 'http://127.0.0.1:8000'
+	let context = useContext(Context)
+	let id = context.user.user_id || null
+	let products = data.map((items)=>{
+		return {
+			"id":items.product.id,
+			"count":items.count,
+		}
+	})
+	console.log("bill",data[0].product.id)
+	console.log(products)
 	let [billed,setBilled]=useState(false)
 	return (
 		<>
@@ -17,20 +34,20 @@ const Bill = () => {
 		 <div onClick={()=>setBilled(false)} className="content">
 			 <div className="bill">
 				<div className="items">
-					{list.map((list)=>{
+					{data.map((dataItems,i)=>{
 						return(
                               <div className="item">
                               	<div className="image">
-                              	 <img src="images/aot.jpg" alt=""/>
+                              	 <img src={`${url2}${dataItems.product.image}`} alt=""/>
                               	</div>
                               	<div className="title">
-                              		<h1>Attack on titan Vol. 1</h1>
+                              		<h1>{dataItems.product.name}</h1>
                               	</div>
                               	<div className="trio">
-                              		<Taka num={"minier"} taka={"220"} ></Taka>
-                              		<Counter></Counter>
+                              		<Taka num={"minier"} taka={dataItems.product.price} ></Taka>
+                              		<Counter id={i} count={dataItems.count} ></Counter>
                               		
-                              		<Taka num={"minier"} taka={"1220"} ></Taka>
+                              		<Taka num={"minier"} taka={dataItems.product.price} ></Taka>
                               	</div>
                               </div>
 						)
@@ -135,7 +152,31 @@ const Bill = () => {
 				</div>
 			</div>
 		 </div>
-		 <button onClick={()=>setBilled(true)} className="checkout-btn">
+		 <button onClick={()=>{
+		 	setBilled(true)
+		 	console.log({'userid':id,'products':products})
+		 	if(id){
+		    products.map((product)=>{
+		    	console.log(product)
+		    	return(
+                  axios.post(url,{'userid':id,'products':product})
+		           .then((response)=>{
+		           	   console.log('done')
+		           })
+		           .catch((err)=>{
+                       console.log(err)
+		           })      
+		    	  )
+		    })
+
+		    }
+		    else{
+		    	console.log('unauthorized')
+		    }
+		    }
+		    }
+		    className="checkout-btn"
+		    >
 		 	Confirm Order
 		 </button>
 		</div>

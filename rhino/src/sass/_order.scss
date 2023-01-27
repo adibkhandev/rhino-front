@@ -81,11 +81,7 @@
   			height: 1.6em;
   		}
   		h1{
-  			@include Font(1.1em,100);
-        color: black;
-        background-color: #b1b2b5;
-  	  	padding: 0.2em 0.55em;
-  	  	border-radius: 40px;
+  			
   		}
   		.left{
   			transform: rotate(180deg);

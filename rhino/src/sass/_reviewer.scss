@@ -10,7 +10,11 @@
 	.product-details{
 		display: flex;
 		width: 60%;
+		height: 25vh;
 		position: relative;
+		.review-image{
+			height: 100%;
+		}
 		.details{
 			margin-left: 2%;
 			.title{
@@ -47,12 +51,13 @@
 
 			width: 100%;
 			padding: 1em 0em ;
+			padding-left: 1.1em;
 			padding-bottom: 8em;
 			box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;  
 			border-radius: 3px;
 			&::placeholder{
 				color: grey;
-				padding-left :1.1em ;
+				
 				@include Font(0.8rem,100);
 			}
 
@@ -75,11 +80,42 @@
 
    }
 }
-.btn-2{
-	padding: 0.6em 0.8em;
-		background-color: #ececec;
-  		box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;	
+.image-poster{
+	position: relative;
+	width: auto;
+	height: 4.4em;
+    display: flex;
+	justify-content: flex-start;
+	
+	input{
+		display: none;
+	}
+	&:hover{
+		cursor: pointer !important;
+		}
+	.gone{
+		display: none;
+	}
+	.clicker{
+		width: 4.4em;
+		height: 4.4em;
+		background-color: seashell;
+	}
+		
+  		
+
+}
+.image-poster{
+	
+}
+.input-image{
+	margin-right: 0.6em;
+	height: 4.4em;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	img{
-		width:1.4em;
+		width: 4.4em;
 	}
 }

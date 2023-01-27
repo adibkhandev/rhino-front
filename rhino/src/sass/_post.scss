@@ -1,7 +1,18 @@
-
+.reve{
+	
+	margin-left: 40vw;
+	transition: margin 2s cubic-bezier(.69,.17,.29,.87);
+	transition-delay:1.4s; 
+}
+.revless{
+	
+	margin-left: 0;
+	transition: margin 2s cubic-bezier(.69,.17,.29,.87);
+ 
+}
 .post{
 	height: 100vh;
-	width: 100vw;
+	
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -119,7 +130,7 @@
 		width: 40vw;
 	}
 	.semi-circle-1-inactive{
-    background-color: #f1f1f1;
+        background-color: #f1f1f1;
 		box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
 		top: 12%;
 		right: -52.5%;
@@ -176,24 +187,113 @@
 		position: absolute;
 		z-index: 2;
 	}
-	.reviewer-open{
+	.reviewer{
 		
 		transition: 1s cubic-bezier(.69,.17,.29,.87);
-		transition-delay: 2s;
+		transition-delay: 1.4s;
 		top: 0;
-		right: 0;
+		left: 0;
 		height: 100vh;
-		width: 20vw;
+		width:40vw;
 		background-color: #27002a;
 		position: absolute;
 		z-index: 3;
+		display: flex;
+		flex-direction: column;
+		.rev-title{
+			@include FancyFont(3em,100);
+			color: white;
+			opacity: 90%;
+			margin-top: 2.5vw;
+			margin-left: 6%;
+			margin-bottom: 5vh;
+		}
+		.reviews{
+			height: 90vh;
+			
+			.container-rev{
+				width: 90%;
+				margin: 0 6.5%;
+				height: auto;
+				
+				margin-bottom: 2vh;
+				display: flex;
+				.pfp{
+                    width: 8vh;
+                    height: 8vh;
+                    background-color: grey;
+                    border-radius: 200px;
+                    img{
+                    	width: inherit;
+                    	border-radius: inherit;
+                    }
+				}
+				.data{
+					margin-top: 0.1em;
+					width: 78%;
+					margin-left: 1.6vw;
+					display: flex;
+					flex-direction: column;
+					justify-content: flex-start;
+					.namerate{
+
+						width: 100%;
+						display: flex;
+						justify-content: space-between;
+						.creater_name{
+							@include Font(1em,300);
+							color: white;
+							margin-bottom: 0.3em;
+						}
+						.rating{
+							margin-top: 0.2em;
+							display: flex;
+							@include FancyFont(0.5em,100);
+							color: white;
+							width: auto;
+							img{
+								height:0.9rem;
+								margin-left: 0.8em;
+							}
+						}
+					}
+					.writing{
+						@include CowboyFont(0.8em,300);
+						color: white;
+						height: 5.5em;
+						
+						margin-bottom: 0.4em;
+					}
+					.images{
+						display: flex;
+
+					}
+					.rev_image_cont{
+						border-radius: 5px;
+						margin-right: 0.7vw;
+						width: 3vw;
+						height: 3vw;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						overflow: hidden;
+						margin-bottom: 2em;
+					}
+					.rev_images{
+						width: inherit;
+						
+					}
+				}
+
+			}
+		}
 	}
-	.reviewer-close{
+	.close{
 		transition: 1s cubic-bezier(.69,.17,.29,.87);
 		top: 0;
-		right: -20vw;
+		left: -40vw;
 		height: 100vh;
-		width: 20vw;
+		width:40vw;
 		background-color: #27002a;
 		position: absolute;
 		z-index: 3;

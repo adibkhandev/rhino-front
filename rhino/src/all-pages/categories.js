@@ -1,5 +1,7 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import Nav from './Nav'
+import Context from './Context'
+import {Link} from "react-router-dom"
 const Categories = () => {
 	return (
         <div className="whole-page-cat">
@@ -10,18 +12,23 @@ const Categories = () => {
 }
 const Content =()=>{
 	
-
+let context = useContext(Context)
+let setCategory = context.set_category
 	return(
    <div className="content-cont">
       	
      <div className="top">
       <div className="aside">
       	<div className="first-row">
-      	   <div id="box-1" className="boxes">
+          
+             
+      	   <div onClick={()=>setCategory('anime_goods')} id="box-1" className="boxes">
+              <Link to="/searched" >
              <img src="images/gojo.jpg" alt=""/>
               <h1>ANIME GOODS</h1>
+             </Link>
            </div>	
-           <div id="box-2" className="boxes">
+           <div onClick={()=>setCategory('manga')} id="box-2" className="boxes">
             <img src="images/garo.jpg" alt=""/>
             <h1>MANGA</h1>
            </div>
@@ -29,7 +36,7 @@ const Content =()=>{
       	   
 
            <div className="second-row">
-           	<div id="box-3" className="boxes">
+           	<div onClick={()=>setCategory('novel')} id="box-3" className="boxes">
             <img src="images/asta.jpg" alt=""/>
             <h1>NOVEL</h1>
            </div>
@@ -37,7 +44,7 @@ const Content =()=>{
 
       </div>
       <div className="right-side">
-      	<div id="box-4" className="boxes">
+      	<div onClick={()=>setCategory('lamps')} id="box-4" className="boxes">
              <img src="images/dabi.jpg" alt=""/>
              <h1>LAMPS</h1>
          </div>
@@ -48,11 +55,11 @@ const Content =()=>{
         
         
         <div className="bottom">
-        	<div id="box-5" className="boxes">
+        	<div onClick={()=>setCategory('accessories')}  id="box-5" className="boxes">
          <img src="images/kaneki.jpg" alt=""/>
          <h1>ACCESSORIES</h1>
         </div>
-        <div id="box-6" className="boxes">
+        <div onClick={()=>setCategory('action_figures')}  id="box-6" className="boxes">
          <img src="images/tanjiro.jpg" alt=""/>
          <h1>ACTION FIGURES</h1>
         </div>

@@ -1,7 +1,14 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import Nav from './Nav'
-import {Taka,Stars,Like,Filter} from "./Components"
+import {Link} from "react-router-dom"
+import {Taka,FixedStars,Filter} from "./Components"
+import Like from './Like'
+import Context from './Context'
 const  Searched = () => {
+	let context = useContext(Context)
+	let results = context.search_result
+	let loading = context.loading
+	console.log(results,'achieved')
 	return (
 		<>
         <div className="searched-page">
@@ -9,43 +16,59 @@ const  Searched = () => {
          
          
          	    
-        
-         <Results>
+         {
+         	!loading?
+              <Results results={results} > </Results>
+              :
+              <h1>loading</h1>
+         }        
          	
-         </Results>
         </div> 
 		</>
 	)
 }
-const Results=()=>{
-	let results = [0,1,2,3,4,5,6,7,8,9,10,11,8,9,10,11,0,1,2,1]
+const Results=({results})=>{
+	console.log(results,'got')
+	
 	return(
 		<>
 		  
 		  <div className="all">
 		   <Filter></Filter> 
 	       <div className="cards">
-	       	  {results.map((result)=>{
+
+	       	  {results?results.map((result)=>{
 	       	  	return(
-                   <div className="card">
-                   	<img className="card-img" src="images/product6.jpg" alt=""/>
-                   	<h1 className="title">
-                   		Shingeki No Kyojin Vol.14
-                   	</h1>
-                   	<Taka num={"minier"} taka={"220"}  ></Taka>
-                   	<Stars></Stars>
-                   	<div className="cart-like">
-                   		<h1>Add tocart</h1>
-                        <Like></Like>
-                   	</div>
-                   </div>
+	       	  <Link to="/post" state={result} >
+                   <Card result={result} ></Card>
+	       	  	
+	       	  </Link>
 	       	  	)
-	       	  })}
+	       	  }):'hi'}
 	       </div>	
 		  	
 		  </div>
 		</>
       
+	)
+}
+const Card =({result})=>{
+	let url2 = 'http://127.0.0.1:8000'
+	return(
+        <>
+            <div className="card">
+                   	<img className="card-img" src={`${url2+result.image}`} alt=""/>
+                   	<h1 className="title">
+                   		{result.name}
+                   	</h1>
+                   	<Taka num={"minier"} taka={result.price}  ></Taka>
+                   	<FixedStars></FixedStars>
+                   	<div className="cart-like">
+                   		<h1>Add tocart</h1>
+                         <Like id={result.id} ></Like>
+                   	</div>
+            </div>
+        </>
 	)
 }
 

@@ -96,3 +96,19 @@
 }
 
 }
+.white-count{
+	@include Font(1.1em,100);
+        color: black;
+        background-color: rgba(255, 255, 255, 0.29);
+
+  	  	padding: 0.2em 0.55em;
+  	  	border-radius: 40px;
+
+}
+.dark-count{
+	@include Font(1.1em,100);
+        color: black;
+        background-color: #b1b2b5;
+  	  	padding: 0.2em 0.55em;
+  	  	border-radius: 40px;
+}

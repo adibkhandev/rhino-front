@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect,useContext} from 'react'
 import Order from './all-pages/Order'
 import Landing from './all-pages/Landing'
 import RunningOut from './all-pages/RunningOut'
@@ -15,19 +15,26 @@ import Liked from './all-pages/Liked'
 import LogReg from './all-pages/Log-reg'
 import Nav from "./all-pages/Nav"
 import {Taka} from "./all-pages/Components"
+
+import {AuthProvider,Context} from './all-pages/Context'
+
+
 import {BrowserRouter , Routes,Route,Link} from "react-router-dom"
 const App = () => {
+
+
   return (
      <>
           <BrowserRouter>
 
+           <AuthProvider>
             <Routes>
                
-              <Route path="/" element={<Landing/>} ></Route>
+              <Route path="/" element={<Landing />} ></Route>
               <Route path="/categories" element={<Categories/>} ></Route>
               <Route path="/cart" element={<Cart/>} ></Route>
               <Route path="/post" element={<Post/>} ></Route>
-              <Route path="/searched" element={<Searched/>} ></Route>
+              <Route path="/searched" element={<Searched />} ></Route>
               <Route path="/bill" element={<Bill/>} ></Route>
               <Route path="/reviewer" element={<Reviewer/>} ></Route>
               <Route path="/liked" element={<Liked/>} ></Route>
@@ -35,6 +42,8 @@ const App = () => {
               <Route path="/order" element={<Order/>} ></Route>
              
             </Routes>
+             
+           </AuthProvider>
           </BrowserRouter>
      </>
   )

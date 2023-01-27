@@ -1,18 +1,30 @@
-import react ,{useState,useEffect,useRef}from 'react'
+import react ,{useState,useEffect,useRef,useContext}from 'react'
 import Navigation from './Navigation'
 import '../sass/main.scss'
 import RunningOut from './RunningOut'
 import MostPopular from "./MostPopular"
 import Nav from './Nav'
 
-let Landing = ()=>{
+import {AuthProvider,Context} from './Context'
+
+let Landing = ({setSearch})=>{
   let [isout,setIsout] = useState(true)
   let [searchon,setSearchon]= useState(true)
- 
+  let local = localStorage.getItem('usertoken')
+  console.log(JSON.parse(local),'json')
+    let context = useContext(Context)
+    console.log(context)
+    let usersetter = context.usersetter
+    let token = context.token
+     useEffect(() => {
+       if(token){
+         console.log(token,'tok')
+       }
+     }, [token])
   return(
     <>
     <div  className="land">
-      <Nav  stick={true} ase={true} searchon={searchon?true:false} visible={isout} colour={'white'} ></Nav>
+      <Nav  setSearch={setSearch}  stick={true} ase={true} searchon={searchon?true:false} visible={isout} colour={'white'} ></Nav>
      <Home scrolling={setSearchon} referer={setIsout}  ></Home>
      <RunningOut  ></RunningOut>
      <MostPopular></MostPopular>

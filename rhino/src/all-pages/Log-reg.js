@@ -1,6 +1,6 @@
-import React,{useState} from 'react'
-import Navigation from './Navigation-ash'
-import Nav from './Nav'
+import {useState} from 'react'
+import Reg from './Reg'
+import Log from './Log'
 
 const LogReg = () => {
 	let [logreg,setLogreg]=useState(0)
@@ -13,8 +13,8 @@ const LogReg = () => {
 	return (
 	
 			<div id="logregpage" className={logreg===0?"login-reg-cont":"login-reg-cont-active"} >
-			 <Log binary={logreg} func={func} />
-			 <Reg binary={logreg} func={funcback} />
+			 <Reg binary={logreg} func={func} />
+			 <Log binary={logreg} func={funcback} />
 			 <img src="images/luffy.png" alt="" className={logreg===0?"luffy-1":"luffy-1-active"}/>
 			 <img src="images/luffy.png" alt="" className={logreg===1?"luffy-2":"luffy-2-active"}/>
 			</div>
@@ -23,79 +23,9 @@ const LogReg = () => {
 		
 	)
 }
-const Log = (props) => {
-	
-    return(
-       <div className="login-background">
-      <Nav binary={props.binary}  stick={true} ase={true} searchon={true}  colour={'white'}/>
-       	
-       	       	<div className={props.binary===0?"inputs":"inputs gone"}>
-       		<h1 className="headline">
-       			Create your Acoount.
-       		</h1>
-       		<div className="twin">
-       		  <input placeholder="First Name" type="text" className="inp-log"/>
-       		  <input placeholder="Last Name" type="text" className="inp-log"/>
-       		</div>
 
-             <input  placeholder="Phone number" type="number" className="phone"/>
-             <input  placeholder="Email" type="text" className="email"/>
-             <input  placeholder="Adress" type="text" className="adress"/>
-             <div className="but">
-             	<button onClick={props.func} >Create Account</button>
-             </div>
-       	</div>
-       </div>
-    )	
-}
-const Reg = (props) => {
 
-	if (props.binary===0){
-    return(
-
-       <div className="reg-background">
-       <Nav binary={1}  stick={true} ase={true} searchon={true}  colour={'white'}/>
-           <div className="login-inputs gone">
-       		 <h1 className="headline">
-       			Log in your account. 
-       		 </h1>
-       	
-
-             
-             <input  placeholder="Email" type="text" className="email"/>
-              <input  placeholder="Enter password" type="text" className="password"/>
-            
-             <div className="but">
-             	<button onClick={props.func} >Login</button>
-             </div>
-           </div>
-         </div>  
-    )	
- }
-   else {
-    return(
-
-       <div className="reg-background">
-       <Nav binary={0}  stick={true} ase={true} searchon={true}  colour={'white'}/>
-       	<div className="login-inputs">
-       		 <h1 className="headline">
-       			Log in your account. 
-       		 </h1>
-       	
-
-             
-             <input  placeholder="Email" type="text" className="email"/>
-              <input  placeholder="Enter password" type="text" className="password"/>
-            
-             <div className="but">
-             	<button onClick={props.func} >Login</button>
-             </div>
-           </div>
-        
-       </div>
-    )	
- }
-}
+  
 
 
 

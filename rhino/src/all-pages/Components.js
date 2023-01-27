@@ -1,26 +1,6 @@
 import React , {useState} from 'react'
 import Star from './Stars'
-export let Counter=(props)=>{
-   console.log(props)
-   let [count,setCount]=useState(1)
-   if(props.fixed){
-      return(
-         <div className="counter">
-       <h1 >{`${props.count}`}</h1>
-            
-         </div>
-       )
-   }
-   return(
-      <>
-     <div className="counter">
-      <img onClick={()=>setCount(count-1)} src="images/arrow-icon.png" alt="" className="arrow left"/>
-       <h1 >{`${count}`}</h1>
-      <img onClick={()=>setCount(count+1)} src="images/arrow-icon.png" alt="" className="arrow right"/>
-     </div>
-     </>    
-   )
-}
+
 export let Filter =()=>{
    return(
    <>
@@ -41,9 +21,10 @@ export let Filter =()=>{
 }
 
 export let Taka =(props)=>{
+   console.log(props.white)
 	return(
            <div className={"taka"+" " +props.num}>
-           	 <img src="images/taka.png" alt="" className="tkimg"/>
+           	 <img src={props.white?"images/taka-white.png":"images/taka.png"} alt="" className="tkimg"/>
            	 <h1 className="tknum" >{props.taka}</h1>
            </div>
 	)
@@ -62,10 +43,11 @@ export let Stars2 =(props)=>{
 
 }
 
-export let Stars =(props)=>{
+export let Stars =({setStar})=>{
 	let [stars,setStars]=useState(0)
+   
 	return(
-           <div className="stars">
+           <div onChange={setStar(stars)} className="stars">
            	<img onClick={()=>setStars(1)} src={stars>0?"images/star-brown-filled.svg":"images/star-brown.svg"} alt="" className="star"/>
            	<img onClick={()=>setStars(2)} src={stars>1?"images/star-brown-filled.svg":"images/star-brown.svg"} alt="" className="star"/>
            	<img onClick={()=>setStars(3)} src={stars>2?"images/star-brown-filled.svg":"images/star-brown.svg"} alt="" className="star"/>
@@ -77,36 +59,37 @@ export let Stars =(props)=>{
 
 
 }
-export let Like =()=>{
-   let [like,setLike]= useState(false)
+export let FixedStars =()=>{
+   let [stars,setStars]=useState(0)
+   
    return(
-      <div onClick={()=>{
-             if(like){
-             setLike(false)
-             }
-             else{
-               setLike(true)
-             }
-
-          }} className="like">
-         <img  src={like?"images/liked.svg":"images/like.png"} alt=""/>
-      </div>
+           <div  className="stars">
+            <img onClick={()=>setStars(1)} src={stars>0?"images/star-brown-filled.svg":"images/star-brown.svg"} alt="" className="star"/>
+            <img onClick={()=>setStars(2)} src={stars>1?"images/star-brown-filled.svg":"images/star-brown.svg"} alt="" className="star"/>
+            <img onClick={()=>setStars(3)} src={stars>2?"images/star-brown-filled.svg":"images/star-brown.svg"} alt="" className="star"/>
+            <img onClick={()=>setStars(4)} src={stars>3?"images/star-brown-filled.svg":"images/star-brown.svg"} alt="" className="star"/>
+            <img onClick={()=>setStars(5)} src={stars>4?"images/star-brown-filled.svg":"images/star-brown.svg"} alt="" className="star"/>
+            
+           </div>
    )
+
+
 }
+
 export let Item = (props)=>{
 	let [liked,setLiked]=useState(false)
-
+   let url = 'http://127.0.0.1:8000'
 	return(
            <div className="item-cont" >
 	         <div className="item">
                <div className="image">
-                  <img src="images/aot.jpg" alt=""/>
+                  <img src={`${url}${props.data.image}`} alt=""/>
                </div>
                <div className="title">
-                  <h1>Attack on titan Vol. 1</h1>
+                  <h1>{props.data.name}</h1>
                </div>
                              
-               <Taka num={"one"} taka={"220"} ></Taka>
+               <Taka num={"one"} taka={props.data.price} ></Taka>
                <div onClick={()=>setLiked(true)} className="like">
                 <img  src={liked?"images/liked.svg":"images/like.png"} alt=""/>
                </div>
