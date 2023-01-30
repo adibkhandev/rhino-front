@@ -74,28 +74,32 @@ overflow: hidden;
     transition: 1.2s cubic-bezier(.69,.17,.29,.87);
 	}
 }
-
+.headline{
+	@include FancyFont(2.6rem,100);
+	margin-bottom:2rem ;
+}
 .inputs{
 	transition: 1s cubic-bezier(.69,.17,.29,.87);
 	transition-delay: 2s;
 
-	h1{
-		margin-bottom:1rem ;
-	}
+
 	button{
 		margin-top: 0.2em;
 	}
-	@include FancyFont(1.6em,100);
+  input{
+  	margin-top: 2em;
+  }
+	// @include FancyFont(1.6em,100);
 	color: white;
 	position: absolute;
 	top: 20%;
 	right: 13%;
-	height: 66vh;
+	height: 60vh;
 	width: 30rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: space-around;
+
 	input{
 	color: white;
 	border-radius: 40px;
@@ -133,7 +137,7 @@ overflow: hidden;
 }
 .but{
 	button{
-		padding: 1.6rem 3.4rem;
+		padding: 1.5rem 2.6rem;
 		border-radius: 40px;
 		background-color: white;
 		color: rgb(221,214,243);
@@ -143,14 +147,11 @@ overflow: hidden;
 .login-inputs{
 		transition: 1s cubic-bezier(.69,.17,.29,.87);
 	transition-delay: 2s;
-	h1{
-		margin-bottom:1rem ;
-	}
+
 	button{
 		margin-top: 0.2em;
 	}
-	@include FancyFont(1.6em,100);
-	color: white;
+		color: white;
 	position: absolute;
 	top: 30%;
 	left: 10%;
@@ -159,8 +160,9 @@ overflow: hidden;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: space-around;
+	
 	input{
+		margin-bottom: 1em;
 	color: white;
 	border-radius: 40px;
 	border-style: solid;
@@ -196,4 +198,11 @@ overflow: hidden;
 .gone{
  opacity: 0;
  transition: 1s cubic-bezier(.69,.17,.29,.87);
+}
+.shifter{
+	margin-top:1.4em;
+	margin-bottom: 1em;
+	color: white;
+	@include Font(0.7em,400);
+	opacity: 0.8;
 }

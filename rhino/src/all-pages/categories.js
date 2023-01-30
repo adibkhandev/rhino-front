@@ -29,8 +29,10 @@ let setCategory = context.set_category
              </Link>
            </div>	
            <div onClick={()=>setCategory('manga')} id="box-2" className="boxes">
+           <Link to="/searched" >
             <img src="images/garo.jpg" alt=""/>
             <h1>MANGA</h1>
+            </Link>
            </div>
       	</div>
       	   

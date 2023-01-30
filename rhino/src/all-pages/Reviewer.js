@@ -32,6 +32,10 @@ const Reviewer = () => {
 	let ref_image1 = useRef(null) 
 	let ref_image2 = useRef(null)
 	let ref_image3 = useRef(null)
+	let writeRef = useRef(null)
+	let focusHandler=()=>{
+		writeRef.current.focus()
+	}
         let postHandler =() =>{
                 let formdata = new FormData();
         	formdata.append("userid",userid)
@@ -97,10 +101,10 @@ const Reviewer = () => {
 				</div>
 			</div>
 			<div className="input">
-				<input onChange={(e)=>setWriting(e.target.value)} value={writing}  placeholder="Write your own review"  type="text"  className="rev">
+				<input ref={writeRef} onChange={(e)=>setWriting(e.target.value)} value={writing}  placeholder="Write your own review"  type="text"  className="rev">
 
 				</input>
-				 <img src="images/edit.png" alt="" className="write"/>
+				 <img onClick={focusHandler} src="images/edit.png" alt="" className="write"/>
 			</div>
 			<div className="buttons">
 
@@ -113,8 +117,14 @@ const Reviewer = () => {
 
                                 
 
-                                <div onClick={imageHandler} className="clicker">
-                                
+                                <div className="clicker">
+                                <div onClick={imageHandler} className="desc">
+                                	<h1>Add Photos</h1>
+                                	<div className="plus">
+                                		<div className="vert"></div>
+                                		<div className="hor"></div>
+                                	</div>
+                                </div>
 				<input onChange={(e)=>{
 				        console.log(e.target.files[0])	
 					setImage1(e.target.files[0])

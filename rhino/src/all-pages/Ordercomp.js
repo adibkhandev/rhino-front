@@ -3,25 +3,27 @@ import {Taka} from "./Components"
 import Counter from './Counter'
 
 
-const Ordercomp = ({count,active}) => {
+const Ordercomp = ({data}) => {
+     let image_url = 'http://127.0.0.1:8000/'
+     console.log(data)
 	return (
 		<div>
 		                 <div className="order">
-                              <div className={`${"item"} ${active? "purpled":"ash"}`}>
+                              <div className={`${"item"} ${!data.delicered? "purpled":"ash"}`}>
                                    <div className="image">
-                                    <img src="images/aot.jpg" alt=""/>
+                                    <img src={`${image_url}${data.product[0].image}`} alt=""/>
                                    </div>
                                    <div className="title">
-                                        <h1>Attack on titan Vol. 1</h1>
+                                        <h1>{data.product[0].name}</h1>
                                    </div>
                                    <div className="trio">
-                                        <Taka white={active} num={"zero"} taka={"220"} ></Taka>
-                                        <Counter white={active} fixed={true} count={count}></Counter>
+                                        <Taka white={!data.delicered} num={"zero"} taka={data.product[0].price} ></Taka>
+                                        <Counter white={!data.delicered} fixed={true} count={data.orderNumber}></Counter>
                                         
-                                        <Taka white={active} num={"zero"} taka={"1220"} ></Taka>
+                                        <Taka white={!data.delicered} num={"zero"} taka={data.product[0].price * data.orderNumber} ></Taka>
                                    </div>
                               </div>
-                              <div className={`${"deliver"} ${active? "purpled":"ash"}`}>
+                              <div className={`${"deliver"} ${!data.delicered? "purpled":"ash"}`}>
                                         
                                    <div className="center">
                                    <div className="deliver-time">

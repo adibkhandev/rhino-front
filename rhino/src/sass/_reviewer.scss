@@ -14,6 +14,7 @@
 		position: relative;
 		.review-image{
 			height: 100%;
+			border-radius: 3px;
 		}
 		.details{
 			margin-left: 2%;
@@ -38,6 +39,7 @@
 	}
 	.input{
 		width: 60%;
+		// overflow: hidden;
         margin-top: 1.6%;
         position: relative;
         img{
@@ -49,9 +51,9 @@
 		input{
 			background-color: #f3f3f3;
 
-			width: 100%;
-			padding: 1em 0em ;
-			padding-left: 1.1em;
+			width: 98%;
+			padding: 1.25em 0em ;
+			padding-left: 2%;
 			padding-bottom: 8em;
 			box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;  
 			border-radius: 3px;
@@ -73,10 +75,12 @@
 }
 .btn-1{
 	button{
-	padding: 1em 3.2em;
-	border-radius: 2px;
-	background-color:#3c4f5c;
+	padding: 1.8em 4em;
+	border-radius: 4px;
+	background-color: #19001E ;
 	color: white;
+	@include Font(0.8rem,100);
+
 
    }
 }
@@ -97,9 +101,41 @@
 		display: none;
 	}
 	.clicker{
-		width: 4.4em;
-		height: 4.4em;
-		background-color: seashell;
+		width: 5.4rem;
+		height: 5.4rem;
+		
+		border-style: solid;
+		border-color: #19001E ;
+		border-radius: 4px;
+		border-width: 0.2em;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		.desc{
+			margin-left: -2px;
+			display: flex;
+			position: relative;
+		h1{
+			@include CursiveFont(0.8rem,400);
+		}
+		.plus{
+			display: flex;
+            margin-left: 0.5em;
+            position: absolute;
+            top:-5px;
+            right: -2px;
+            bottom: 10px;
+			div{
+				height: 10px;
+				width: 2px;
+				background-color: #19001E ;
+			}
+			.hor{
+				margin-left: -2px;
+				transform: rotate(90deg);
+			}
+		}	
+		}
 	}
 		
   		
@@ -110,12 +146,16 @@
 }
 .input-image{
 	margin-right: 0.6em;
-	height: 4.4em;
+	height: 5.4rem;
 	overflow: hidden;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	border-style: solid;
+	border-color: #19001E ;
+		border-radius: 4px;
+		border-width: 0.2em;
 	img{
-		width: 4.4em;
+		width: 5.4rem;
 	}
 }

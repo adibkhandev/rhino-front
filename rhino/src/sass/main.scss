@@ -27,12 +27,18 @@
 	font-weight: $fontweight;
 	font-size: $fontsize;
 }
+@mixin CursiveFont($fontsize,$fontweight){
+	font-family: 'Pacifico', cursive;
+	font-weight: $fontweight;
+	font-size: $fontsize;
+}
 $border-purple: #280042;
 $fill-purple: #19001e;
 @import './bill','./cart','./component','./categories','./populars','./landing','./logreg','./navigation','./post','./runningout','./searched','./reviewer','./nav','./liked','./counter','./animations','./order';
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 html {
   scroll-behavior: smooth;

@@ -46,6 +46,7 @@ const Reg = (props) => {
              <input onChange={(e)=>setEmail(e.target.value)} value={email}  placeholder="Email" type="text" className="email"/>
              <input onChange={(e)=>setAdress(e.target.value)} value={adress}  placeholder="Adress" type="text" className="adress"/>
              <input onChange={(e)=>setPassword(e.target.value)} value={password}  placeholder="Password" type="text" className="password"/>
+             <h1 className="shifter" onClick={props.func} >Already have an account? Login</h1>
              <div className="but">
              	<button onClick={handleSubmit} >Create Account</button>
              </div>

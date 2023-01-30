@@ -59,7 +59,9 @@ useEffect(() => {
      }		
 	}
 }, [token])
-
+useEffect(() => {
+    console.log(result,'result mf')
+}, [result])
 useEffect(()=>{
 	console.log(category,'stats')
 },[category])
@@ -131,7 +133,7 @@ useEffect(() => {
     }
 
 	return(
-        <Context.Provider value={{'loading':loading ,'function':tokensetter,'token':token,'user':data,'usersetter':usersetter,'setsearch':setSearch,'search_result':result,'set_category':setCategory}} >
+        <Context.Provider value={{'loading':loading,'setloading':setLoading ,'function':tokensetter,'token':token,'user':data,'usersetter':usersetter,'setsearch':setSearch,'search_result':result,'set_category':setCategory,'setresult':setResult}} >
         	{children}
         </Context.Provider>
 	)

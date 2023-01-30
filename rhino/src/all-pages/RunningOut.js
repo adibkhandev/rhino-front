@@ -1,38 +1,35 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useContext} from 'react'
 import {Taka} from './Components'
+import axios from 'axios'
+import {Link} from "react-router-dom"
+
+
 const RunningOut = () => {
+  let url = 'http://127.0.0.1:8000/news/'
+  let image_url = 'http://127.0.0.1:8000/'
 	let [active,setActive]=useState(0)
   let [animate,setAnimate]=useState(0)
    let [deduct,setDeduct]=useState(0)
+   let [products,setProducts]=useState([])
    useEffect(()=>{
        console.log(active)
        console.log(products.length )
+
    },[active])
 
-	let products = [
-          {
-          	title:"Solo Leveling Vol. 1",
-          	taka:240,
-          	heading:"eid sale",
-          	runout:"Running out this week",
-          	url:"product-2.jpg",
-          },
-          {
-          	title:"Solo Leveling Vol. 1",
-          	taka:240,
-          	heading:"Big sale",
-          	runout:"Running out this week",
-          	url:"product1.jpg",
-          },
-          {
-          	title:"Solo Leveling Vol. 1",
-          	taka:240,
-          	heading:"eid sale",
-          	runout:"Running out this week",
-          	url:"product6.jpg",
-          },
-        
-	]
+   useEffect(() => {
+       axios.get(url)
+       .then((response)=>{
+          console.log(response.data,'yess')
+          setProducts(response.data)
+          console.log(products[0],"att")
+       })
+       .catch((err)=>{
+         console.log(err)
+       })
+   }, [])
+
+
 
 
 	let inactive = products.filter((inactiveProducts,index)=>{
@@ -42,27 +39,29 @@ const RunningOut = () => {
 	return (
 		<>
         
-		
-			<div className="page2">
+		 {products[active]?(
+       <div className="page2">
 
-			
+      
               <div className={animate===1?"txts ghost-text":animate===2?"txts ghost-text human-text":"txts"}>
-              	<div className="headers">
-              		<h1 className={"small"}>
-              			{products[active].heading}
-              		</h1>
-              		<h1 className={"big"}>
-              			{products[active].runout}
-              		</h1>
-              	</div>
-              	<div className="pricers">
-              	     <h1 className={"title"}>{products[active].title}</h1>
-              		<Taka taka={products[active].taka} num={"one"} ></Taka>
-              		 <button>
-              		 	Shop Now
-              		 </button>
+                <div className="headers">
+                  <h1 className={"small"}>
+                    {products[active].news_title}
+                  </h1>
+                  <h1 className={"big"}>
+                    {products[active].news_header}
+                  </h1>
+                </div>
+                <div className="pricers">
+                     <h1 className={"title"}>{products[active].product.name}</h1>
+                  <Taka taka={products[active].product.price} num={"one"} ></Taka>
+                    <Link to="/post" state={products[active].product} >
+                   <button>
+                    Shop Now
+                   </button>
+                   </Link>
 
-              	</div>
+                </div>
               </div>
 
             
@@ -111,39 +110,46 @@ const RunningOut = () => {
               }}
                         className={animate===1?"images ghost":animate===2?"images ghost human":"images"}>
 
-                      <img  src={`images/${products[active].url}`} alt=""/>
+                      <img  src={`${image_url}${products[active].product.image}`} alt=""/>
 
                        {inactive.map((inac)=>{
-                       	return(
-                            <img className="inactive-images" src={`images/${inac.url}`} alt=""/>
-                       	)
+                        return(
+                            <img className="inactive-images" src={`${image_url}${inac.product.image}`} alt=""/>
+                        )
                        })}
                       
-              	 
+                 
               </div>
 
             
               <div className="movers">
-              	<button onClick={()=>{
+                <button onClick={()=>{
                         setAnimate(1)
                         setDeduct(-1)
                       }
                     } >
-              		<img id="left" src="images/arrow-icon.png" alt=""/>
-              	</button>
-              	<button onClick={()=>{
+                  <img id="left" src="images/arrow-icon.png" alt=""/>
+                </button>
+                <button onClick={()=>{
                         setAnimate(1)
                         setDeduct(1)
                       }
                     } >
-              		<img id="right" src="images/arrow-icon.png" alt=""/>
-              	</button>
+                  <img id="right" src="images/arrow-icon.png" alt=""/>
+                </button>
 
               </div>
            
 
 
            </div>
+     ):(
+          <div className="hi">hi</div>
+
+     )
+
+     }
+			
            
 		
            

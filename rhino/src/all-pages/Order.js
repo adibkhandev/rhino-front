@@ -9,19 +9,19 @@ import Context from './Context'
 const Order = () => {
 let url = 'http://127.0.0.1:8000/ordered/'
 let context = useContext(Context)
-let userid = context.user.user_id
+let userid = 28
 let [orderedData,setOrderedData] = useState()
 useEffect(() => {
      if(userid){
      axios.post(url,{"userid":userid})
        .then((response)=>{
           console.log(response.data)
-          let itemArray = response.data.map((data)=>{
+          let itemArray = response.data.slice().reverse().map((data)=>{
                return(
                   data
                )
           })
-          setOrderedData(response.data)
+          setOrderedData(response.data.slice().reverse())
           console.log(orderedData)
        })
        .catch((err)=>{
@@ -43,7 +43,7 @@ useEffect(() => {
 
            	 	{orderedData?orderedData.map((orders,i)=>{
                         return(
-                           <Ordercomp count={orders.orderNumber} id={orders.id} active={!orders.delicered} ></Ordercomp>
+                           <Ordercomp data={orders} ></Ordercomp>
                          )             
                     }  
            	)

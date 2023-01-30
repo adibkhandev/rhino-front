@@ -53,7 +53,7 @@ const Log = (props) => {
              
               <input onChange={(e)=>setMail(e.target.value)} value={mail}  placeholder="Email" type="text" className="email"/>
               <input onChange={(e)=>setPassword(e.target.value)} value={password}  placeholder="Enter password" type="text" className="password"/>
-            
+             <h1 className="shifter" onClick={props.func} >Don't have an account? Sign up</h1>
              <div className="but">
              	<button onClick={handleSubmit} >Login</button>
              </div>
