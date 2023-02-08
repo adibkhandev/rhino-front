@@ -131,9 +131,9 @@ const ReviewSlide=({data,open,setOpen})=>{
 	    	Reviews
 	    </div>
 	    <div className="reviews">
-		{data.rev.map((iid)=>{
+		{data.rev.map((data)=>{
 			return(
-               <Review id={iid} ></Review>
+               <Review data={data} ></Review>
 			)
 		})}
 	    	
@@ -144,24 +144,22 @@ const ReviewSlide=({data,open,setOpen})=>{
 	)
 }
 
-const Review = ({id}) =>{
-	let url = 'http://127.0.0.1:8000/showrev/'
+const Review = ({data}) =>{
+	let [images,setImages] = useState(null)
+	let url = 'http://127.0.0.1:8000/review/images/'
 	let base_url = 'http://127.0.0.1:8000'
-	let [data,setData]= useState('')
-	useEffect(() => {
-		if(id){
-			axios.post(url,{'pk':id})
-			 .then((response)=>{
-			 	console.log(response.data,'rev')
-			 	setData(response.data)
-			 	console.log(data,'r')
-			 })
-			 .catch((err)=>{
-			 	console.log(err)
-			 })
-		}
-	}, [id])
-	console.log(data.images,'im')
+    console.log(data.id,'idd')
+    useEffect(() => {
+    	axios.post(url,{'id':data.id})
+    	.then((response)=>{
+            console.log(response.data,'RES')
+            setImages(response.data)
+    	})
+    	.catch((err)=>{
+    		console.log(err)
+
+    	})
+    }, [])
 	return(
       <div className="container-rev">
       	<div className="pfp">
@@ -181,7 +179,7 @@ const Review = ({id}) =>{
       			{data.review}
       		</div>
       		<div className="images">
-      			{data? data.images.map((image)=>{
+      			{images?images.map((image)=>{
       				return(
       					<div className="rev_image_cont">
       						

@@ -6,6 +6,7 @@ let initialState = {
 let reducer=(state=initialState,action)=>{
 	switch(action.type){
 	case "ADD": return {
+		
 		...state,
 		data:[...state.data ,
 		           {
@@ -54,6 +55,13 @@ let reducer=(state=initialState,action)=>{
         	...state.data,
         	data:addArray
         }
+     case "DELETE":
+     	 return{
+     	 	...state,
+     	 	data:state.data.filter((item)=>{
+     	 		return item!=action.payload
+     	 	})
+     	 }
 		
 		
 

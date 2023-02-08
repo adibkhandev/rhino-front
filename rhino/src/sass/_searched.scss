@@ -12,7 +12,7 @@
 	.all{
 		width: 100;
 		  z-index:2 ;
-			margin-top: 10%;
+			margin-top: 28vh;
 	}
 	.filter-widget{
 	  margin-bottom: 0.6em;
@@ -28,7 +28,20 @@
 		
 		width: 80vw;
 		height: auto;
+		.cont{
+			position: relative;
+			height: auto;
+			width: auto;
+
+		}
 	}
+		.functional-buttons{
+			position: absolute;
+			bottom: 3%;
+			left: 2%;
+               width: 7.15vw;
+ 
+		}
 
 	.card{
 
@@ -62,8 +75,11 @@
 	.cart-like{
 		display: flex;
 		justify-content: space-between;
-    margin-left: 5%;
-		width: 90%;
+          margin-left: 2%;
+          margin-right: 6%;
+          margin-top: 0.4em;		
+;
+
 		h1{
 		@include Font(0.7rem,100);	
 		}

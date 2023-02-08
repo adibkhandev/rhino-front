@@ -14,6 +14,7 @@ import Reviewer from './all-pages/Reviewer'
 import Liked from './all-pages/Liked'
 import LogReg from './all-pages/Log-reg'
 import Nav from "./all-pages/Nav"
+import Load from "./all-pages/Load"
 import {Taka} from "./all-pages/Components"
 
 import {AuthProvider,Context} from './all-pages/Context'

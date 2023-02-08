@@ -1,4 +1,5 @@
-import React,{useContext} from 'react'
+import React,{useState,useContext} from 'react'
+import {useDispatch} from 'react-redux'
 import Nav from './Nav'
 import {Link} from "react-router-dom"
 import {Taka,FixedStars,Filter} from "./Components"
@@ -12,14 +13,16 @@ const  Searched = () => {
 	return (
 		<>
         <div className="searched-page">
-        	<Nav stick={true} ase={true} searchon={true} visible={true} colour={'ash'}></Nav>
          
          
          	    
          {
-         	!loading?
+         	!loading?(
+         	  <>	
+        	  <Nav stick={true} ase={true} searchon={true} visible={true} colour={'ash'}></Nav>
               <Results results={results} > </Results>
-              :
+              </>
+              ):
               <h1>loading</h1>
          }        
          	
@@ -28,21 +31,26 @@ const  Searched = () => {
 	)
 }
 const Results=({results})=>{
+	let [start,setStart]=useState(0)
+	let [limit,setLimit]=useState(20000)
+
 	console.log(results,'got')
-	
+	let resultFiltered = results.filter((result)=>{
+		return start<=result.price && result.price<=limit
+	})
 	return(
 		<>
 		  
 		  <div className="all">
-		   <Filter></Filter> 
+		   <Filter start={start} setStart={setStart} limit={limit} setLimit={setLimit} /> 
 	       <div className="cards">
 
-	       	  {results?results.map((result)=>{
+	       	  {results?resultFiltered.map((result)=>{
 	       	  	return(
-	       	  <Link to="/post" state={result} >
+	       	  
                    <Card result={result} ></Card>
 	       	  	
-	       	  </Link>
+	       	  
 	       	  	)
 	       	  }):'hi'}
 	       </div>	
@@ -54,20 +62,43 @@ const Results=({results})=>{
 }
 const Card =({result})=>{
 	let url2 = 'http://127.0.0.1:8000'
+	let dispatch = useDispatch()
+	console.log(result.rev,'revv')
+	let Totalrating = [0]
+	let rate = result.rev.map((item)=>{
+		return Totalrating+=item.rating
+	})
+	let star = Totalrating/result.rev.length
+	console.log(star,'st')
+	console.log(Totalrating,'tot') 
+	console.log(rate,'ratee')
 	return(
-        <>
+        <>  
+          <div className="cont">
+            <Link to="/post" state={result} >
             <div className="card">
                    	<img className="card-img" src={`${url2+result.image}`} alt=""/>
                    	<h1 className="title">
                    		{result.name}
                    	</h1>
                    	<Taka num={"minier"} taka={result.price}  ></Taka>
-                   	<FixedStars></FixedStars>
+                   	
+            </div>
+            </Link>
+            <div className="functional-buttons">
+                  {star?<FixedStars star={star} ></FixedStars>:<FixedStars ></FixedStars>}
+            	    
                    	<div className="cart-like">
-                   		<h1>Add tocart</h1>
+                   	    <Link to="/cart">
+                   		<h1 onClick={()=>dispatch({type: 'ADD' , payload:result ,count:1})} >Add tocart</h1>
+                   	    </Link>
+                   	   
                          <Like id={result.id} ></Like>
+                         
                    	</div>
             </div>
+          	
+          </div>
         </>
 	)
 }

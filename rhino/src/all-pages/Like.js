@@ -2,10 +2,10 @@ import {useState,useContext} from 'react'
 import Context from './Context'
 import axios from 'axios'
  
-let Like =(props)=>{
+let Like =({id,liked})=>{
    let context = useContext(Context)
    let userid = context.user? context.user.user_id : null
-   let [like,setLike]= useState(false)
+   let [like,setLike]= useState(liked?true:false)
    let url = 'http://127.0.0.1:8000/like/'
    return(
       <div onClick={()=>{
@@ -13,9 +13,9 @@ let Like =(props)=>{
              setLike(false)
              }
              else{
-             axios.post(url,{'userid':userid,'productid':props.id})
+             axios.post(url,{'userid':userid,'productid':id})
               .then((response)=>{
-               console.log(response)
+               console.log(response,'likes')
               })
               .catch((err)=>{
                console.log(err)

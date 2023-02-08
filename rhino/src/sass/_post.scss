@@ -1,4 +1,4 @@
-.reve{
+ .reve{
 	
 	margin-left: 40vw;
 	transition: margin 2s cubic-bezier(.69,.17,.29,.87);
@@ -18,13 +18,13 @@
 	align-items: center;
 	.picture{
 		img{
-			height: 14em;
+			height: 16em;
 			border-radius: 15px 0 0 15px;
 		}
 	}
 	.text{
 		margin-left: 1.4em;
-		height: 14.2em;
+		height: 16.2em;
 		overflow: hidden;
 		display: flex;
 		flex-direction: column;
@@ -34,7 +34,8 @@
 			margin-bottom: 0.4rem;
 		}
 		.story{
-			width: 20em;
+			max-width: 27em;
+			min-height: 6em;
 			line-height: 1.4;
 			@include Font(0.8em,100);
 			margin-bottom: 1.5rem;
@@ -66,7 +67,7 @@
 			.add{
 				&:hover{
 					
-					color: #27002a;
+					font-size: 0.8rem;
 				}
 				background-color: #27002a;
 				border: solid 2px transparent;

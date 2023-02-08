@@ -45,26 +45,7 @@ const Nav = (props) => {
 
             {/**/}
             </div>
-            <div className="icon-nav">
-               
-            	<div className="icon-conts">
-            	 <Link to={"/login"} >
-               	    <img src={`images/account-${props.colour}.png`} alt=""/>
-                 </Link>
-            	
-            	</div>
-            	<div className="icon-conts">
-            
-                <Link to={context.user?"/liked":"/login"} >
-            	  <img src={`images/love-${props.colour}.png`} alt=""/>
-                </Link>
-            	</div>
-            	<div className="icon-conts">
-            	<Link to={context.user?"/cart":"/login"} >
-            	 <img src={`images/shopping-bag-${props.colour}.png`} alt=""/>
-            	 </Link>
-            	</div>
-            </div>
+            <IconNav color={props.colour} user={context.user} ></IconNav>
 
 
 		</div>
@@ -105,6 +86,55 @@ let SeachEngine = ({setSearch}) =>{
             		</Link>
             	</div>
          </>
+	)
+}
+
+let IconNav =(props)=>{
+	let [scrollDirection,setScrollDirection] = useState('')
+	let [pastPosition,setPastPosition] = useState(0)
+	
+     let scroller = () =>{
+         let scroll = window.scrollY
+         if(scroll>pastPosition){
+         	 setScrollDirection('down')
+         	 console.log(scrollDirection)
+         } else if(scroll<pastPosition){
+         	setScrollDirection('up')
+         	console.log(scrollDirection)
+         }
+         setPastPosition(scroll)
+       
+     }
+	useEffect(() => {
+        window.addEventListener('scroll',scroller)
+
+        return () =>{
+           window.removeEventListener('scroll',scroller)
+        } 
+		
+	})
+	
+	return(
+            <div  className="icon-nav">
+               
+            	<div  className={"icon-conts"}>
+            	 <Link to={"/login"} >
+               	    <img src={`images/account-${props.color}.png`} alt=""/>
+                 </Link>
+            	
+            	</div>
+            	<div  className={scrollDirection==="down"?"icon-conts squeeze":"icon-conts"}>
+            
+                <Link to={props.user?"/liked":"/login"} >
+            	  <img src={`images/love-${props.color}.png`} alt=""/>
+                </Link>
+            	</div>
+            	<div  className={scrollDirection==="down"?"icon-conts squeeze":"icon-conts"}>
+            	<Link to={props.user?"/cart":"/login"} >
+            	 <img src={`images/shopping-bag-${props.color}.png`} alt=""/>
+            	 </Link>
+            	</div>
+            </div>            
 	)
 }
 

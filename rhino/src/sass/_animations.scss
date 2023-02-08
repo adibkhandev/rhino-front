@@ -124,3 +124,37 @@
 		top:100%;
 	}
 }
+@keyframes side-anime-start {
+    0%{
+    	right: 0;
+    }
+    70%{
+    	
+    	opacity: 0.9;
+    }
+    100%{
+        right: -8vw;
+        opacity: 1;
+    }
+
+}
+@keyframes nav {
+	0%{
+		position: absolute;
+	}
+
+	100%{
+		position: absolute;
+		
+		top: 0;
+	}
+}
+@keyframes nav2 {
+	0%{
+        opacity: 1;
+	}
+    
+	100%{
+       opacity: 0;
+	}
+}

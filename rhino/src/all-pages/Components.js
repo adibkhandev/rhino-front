@@ -1,13 +1,27 @@
 import React , {useState} from 'react'
+import {useDispatch} from 'react-redux'
 import Star from './Stars'
-
-export let Filter =()=>{
+import {Link} from "react-router-dom"
+export let Filter =({start,setStart,limit,setLimit})=>{
    return(
    <>
    <div className="filter-widget">
      <div className="filter-inputs">
-        <input placeholder="0" type="text" className="filter-inp"/>
-        <input placeholder="20 000" type="text" className="filter-inp"/>
+        <input onChange={(e)=>{
+         console.log(start)
+               if(e.target.value<limit){
+                  setStart(e.target.value)
+               }
+               else{
+                  setStart(0)
+               }
+               }} placeholder={start} type="text" className="filter-inp"/>
+        <input onChange={(e)=>{
+         console.log(limit)
+              
+                  setLimit(e.target.value)
+            }}
+               placeholder={limit} type="text" className="filter-inp"/>
      </div>
      <div className="desc">
           <h1>
@@ -59,8 +73,15 @@ export let Stars =({setStar})=>{
 
 
 }
-export let FixedStars =()=>{
-   let [stars,setStars]=useState(0)
+export let FixedStars =({star})=>{
+   let [stars,setStars]=useState(()=>{
+      if(star){
+         return star
+      }
+      else{
+         return 0
+      }
+   })
    
    return(
            <div  className="stars">
@@ -77,8 +98,17 @@ export let FixedStars =()=>{
 }
 
 export let Item = (props)=>{
-	let [liked,setLiked]=useState(false)
+	let [liked,setLiked]=useState(()=>{
+       if(props.liked){
+         return true
+       }
+       else{
+         return false
+       }
+    })
+   let data = props.data
    let url = 'http://127.0.0.1:8000'
+   let dispatch = useDispatch()
 	return(
            <div className="item-cont" >
 	         <div className="item">
@@ -99,15 +129,18 @@ export let Item = (props)=>{
  
              <div className="hoverer" >             	
              	<div className="cont">
-             	    <div className="content">
-             		<h1>Add to Cart</h1>
+                  <Link to='/cart'>
+             	    <div onClick={() => dispatch({type: 'ADD' , payload:data ,count:1})} className="content">
+             		<h1  >Add to Cart</h1>
              		<div className="imgs">
              			<img src="images/grocery-cart.png" alt=""/>
              			<img className="plus" src="images/plus.svg" alt=""/>
              		</div>
+             	    </div>
+                     
+                  </Link>
              		
              	    	
-             	    </div>
              	    <div className="purple-line">
              	    	
              	    </div>

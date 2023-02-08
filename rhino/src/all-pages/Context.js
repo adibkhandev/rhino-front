@@ -10,6 +10,7 @@ export let AuthProvider = ({children}) =>{
     let [offer,setOffer]=useState(null)
     let [result,setResult] = useState(null)
     let [loading,setLoading] = useState(true)
+    let [board,setBoard]=useState(null)
     let navigate = useNavigate()
     let localStorageRefresh = localStorage.getItem('refreshtoken')
     let localStorageAccess = localStorage.getItem('usertoken')
@@ -19,7 +20,7 @@ export let AuthProvider = ({children}) =>{
 	let [data,setData]= useState(null)
 	// console.log(data.user_id)
 	//
-	
+	console.log(search)
 	let lifespan = 1000 * 60 * 4
 	let url = 'http://127.0.0.1:8000/api/token/refresh/'
 	let search_url = 'http://127.0.0.1:8000/search/'
@@ -69,16 +70,21 @@ useEffect(()=>{
 //search api request
 
 useEffect(() => {
-	console.log(search,'keywordddd')
-        	setLoading(true)
+	console.log(category,'keywordddd')
+        setLoading(true)
+        setCategory(null)
+        setOffer(null)
+        setBoard(null)
+        setSearch(null)
+        console.log('useEffect')
+        console.log(search,'search hoise')
         if(search){
         	console.log('searchhh')
         	axios.post(search_url,{'searched':search})
         	.then((response)=>{
         		setResult(response.data)
         		setLoading(false)
-        		setCategory(null)
-        		setOffer(null)
+        		
         	})
         	.catch((err)=>{
         		console.log(err)
@@ -90,14 +96,18 @@ useEffect(() => {
              .then((response)=>{
              	setResult(response.data)
              	setLoading(false)
-             	setSearch(null)
-             	setOffer(null)
+             
              })
              .catch((err)=>{
              	console.log(err)
              })
         }
-}, [search,category,offer])
+        if(board){
+        	setResult(board)
+        	setLoading(false)
+           
+        }
+}, [search,category,offer,board])
 
 
 
@@ -133,7 +143,7 @@ useEffect(() => {
     }
 
 	return(
-        <Context.Provider value={{'loading':loading,'setloading':setLoading ,'function':tokensetter,'token':token,'user':data,'usersetter':usersetter,'setsearch':setSearch,'search_result':result,'set_category':setCategory,'setresult':setResult}} >
+        <Context.Provider value={{'loading':loading,'setloading':setLoading ,'function':tokensetter,'token':token,'user':data,'usersetter':usersetter,'setsearch':setSearch,'search_result':result,'set_category':setCategory,'setresult':setResult,'board':board,setBoard:setBoard}} >
         	{children}
         </Context.Provider>
 	)

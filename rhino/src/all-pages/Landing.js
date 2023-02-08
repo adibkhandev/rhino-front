@@ -9,7 +9,7 @@ import axios from 'axios'
 import {AuthProvider,Context} from './Context'
 
 let Landing = ({setSearch})=>{
-  let url =    'http://127.0.0.1:8000/ranker/'
+ 
   let [isout,setIsout] = useState(true)
   let [searchon,setSearchon]= useState(true)
   let local = localStorage.getItem('usertoken')
@@ -18,24 +18,7 @@ let Landing = ({setSearch})=>{
     console.log(context)
     let usersetter = context.usersetter
     let token = context.token
-    let [board,setBoard]=useState(null)
-    let [popular,setPopular]=useState([])
-  useEffect(() => {
-    console.log('use')
-       axios.get(url)
-       .then((response)=>{
-       
-        setBoard(response.data)
-        
-  
-        setPopular(board.slice(0,4))
-        console.log('being s')
-
-       })
-       .catch((err)=>{
-        console.log(err)
-       })
-  })
+   
      useEffect(() => {
        if(token){
          console.log(token,'tok')
@@ -43,11 +26,11 @@ let Landing = ({setSearch})=>{
      }, [token])
   return(
     <>
-    <div  className="land">
+    <div   className="land">
       <Nav  setSearch={setSearch}  stick={true} ase={true} searchon={searchon?true:false} visible={isout} colour={'white'} ></Nav>
      <Home scrolling={setSearchon} referer={setIsout}  ></Home>
      <RunningOut  ></RunningOut>
-     <MostPopular popular={popular} ></MostPopular>
+     <MostPopular ></MostPopular>
     </div>
      
      </>
@@ -90,7 +73,7 @@ let Home =(props)=>{
    window.addEventListener('scroll',scroller)
   return(
     <>
-       <div className="page1">
+       <div  className="page1">
          
            <div  ref={myref} className="hero-section">
            <div className="parts" id="part1">

@@ -3,15 +3,53 @@ import {Link} from "react-router-dom"
 import axios from 'axios'
 import Context from './Context'
 let array = [0,1,2,3] 
-const MostPopular = ({popular}) => {
-    console.log(popular,'prop')
+const MostPopular = () => {
+    
+     let url =    'http://127.0.0.1:8000/ranker/'
 	let image_url = 'http://127.0.0.1:8000/'
 	let context = useContext(Context)
 	let setResult = context.setresult
 	let setLoading = context.setloading
+	let board = context.board
+	let setBoard = context.setBoard
+	let [rank,setRank]= useState(null)
+
+	
+    let [popular,setPopular]=useState([])
+    let [load,setLoad] = useState(true)
+  useEffect(() => {
+    console.log('use')
+       axios.get(url)
+       .then((response)=>{
+        console.log('hocche')
+        setRank(response.data)
+    	
+        console.log(response.data,'rank')
+        console.log('being s')
+
+       })
+       .catch((err)=>{
+        console.log(err)
+       })
+  },[])
+  useEffect(() => {
+  	if(rank){
+  		console.log('rank ase')
+    
+  	setBoard(rank)
+  	
+  	console.log(board)
+    }
+  }, [rank])
+  useEffect(() => {
+     if(board){
+    setPopular(board.slice(0,4))
+    setLoad(false)
+  		
+  	}
+  }, [board])
     let resultHandler = () =>{
     	console.log(popular,'pops')
-    	setResult(popular)
     	setLoading(false)
     }
 	return (
@@ -30,7 +68,7 @@ const MostPopular = ({popular}) => {
 			</div>
 			
 			<div className="populars">
-			        {popular.map((item)=>{
+			        {!load?popular.map((item)=>{
 			        	console.log(item.image)
 			        	return(
                          <Link to="./post" state={item} >
@@ -46,7 +84,7 @@ const MostPopular = ({popular}) => {
 				   	
 				         </Link>
 			        	)
-			        })}
+			        }):'hi'}
 				  
 					
 

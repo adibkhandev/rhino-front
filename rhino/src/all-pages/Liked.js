@@ -24,7 +24,8 @@ const Liked = () => {
     	if(id){
     		axios.post(url,{'id':id})
     		 .then((response)=>{
-                setLikedID(response.data)
+    		 	console.log(response.data,'got this')
+                setLikedID(response.data.liked)
                 console.log(likedID)
     		 })
     		 .catch((err)=>{
@@ -43,7 +44,7 @@ const Liked = () => {
 		<div className="items">
 					{likedID ? likedID.map((list)=>{
 						return(
-							  <Item data={list} ></Item>
+							  <Item data={list} liked={true}></Item>
                               
 						)
 					}): <h1>hi</h1>
