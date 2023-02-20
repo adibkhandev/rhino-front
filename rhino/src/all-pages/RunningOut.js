@@ -7,39 +7,39 @@ import {Link} from "react-router-dom"
 const RunningOut = () => {
   let url = 'http://127.0.0.1:8000/news/'
   let image_url = 'http://127.0.0.1:8000/'
-	let [active,setActive]=useState(0)
+  let [active,setActive]=useState(0)
   let [animate,setAnimate]=useState(0)
    let [deduct,setDeduct]=useState(0)
    let [products,setProducts]=useState([])
    useEffect(()=>{
-       console.log(active)
-       console.log(products.length )
+       // console.log(active)
+       // console.log(products.length )
 
    },[active])
 
    useEffect(() => {
        axios.get(url)
        .then((response)=>{
-          console.log(response.data,'yess')
+          // console.log(response.data,'yess')
           setProducts(response.data)
-          console.log(products[0],"att")
+          // console.log(products[0],"att")
        })
        .catch((err)=>{
-         console.log(err)
+         // console.log(err)
        })
    }, [])
 
 
 
 
-	let inactive = products.filter((inactiveProducts,index)=>{
-		return index!==active
-	})
-	// console.log(animate)
-	return (
-		<>
+  let inactive = products.filter((inactiveProducts,index)=>{
+    return index!==active
+  })
+  // console.log(animate)
+  return (
+    <>
         
-		 {products[active]?(
+     {products[active]?(
        <div className="page2">
 
       
@@ -149,16 +149,16 @@ const RunningOut = () => {
      )
 
      }
-			
+      
            
-		
+    
            
            </>
 
-	
+  
 
 
-	)
+  )
 }
 
 export default RunningOut

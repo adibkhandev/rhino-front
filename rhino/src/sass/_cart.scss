@@ -92,13 +92,29 @@
   }
   .remover{
         position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         opacity: 0;
-        right: 0vw;
-        width: 8em;
-        height: 8em;
-        background-color: grey;
-        border-radius: 8em;
+        right: 0em;
+        width: 12em;
+        height: 13rem;
+        
         transition: opacity ease-in-out 0.2s;
+        .btn{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+         background-color: #ececec;
+          width: 8em;
+          height: 8em;
+          border-radius: 8em;
+           box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;  
+           img{
+            opacity: 0.4;
+            width: 30%;
+           }
+        }
   }
  
  }

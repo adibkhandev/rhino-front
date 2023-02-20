@@ -10,8 +10,8 @@ const Nav = (props) => {
      let context = useContext(Context)
      let data = context.user
      let setSearch = context.setsearch
-     console.log(context,'ccc')
-     console.log(data,'d')
+     let pfp = context.userdata ? context.userdata.profile_pic:false
+     // console.log(data,'d')
 	return (
 
 		<>
@@ -22,7 +22,7 @@ const Nav = (props) => {
 			
 			<div className="rhino-logo">
 			     <Link to="/"></Link>
-				<img  src={`images/rhino-logo-${props.colour}.png`} alt="" className="rhino">
+				<img   src={`images/rhino-logo-${props.colour}.png`} alt="" className={"rhino"}>
                         
 				</img>
 
@@ -45,7 +45,7 @@ const Nav = (props) => {
 
             {/**/}
             </div>
-            <IconNav color={props.colour} user={context.user} ></IconNav>
+            <IconNav pfp={pfp} color={props.colour} user={context.user} ></IconNav>
 
 
 		</div>
@@ -57,18 +57,19 @@ const Nav = (props) => {
 }
 
 let SeachEngine = ({setSearch}) =>{
+
 	let url = 'http://127.0.0.1:8000/search/'
 	let [searchtext,setSearchtext]=useState('')
 	// let handleSubmit=()=>{
 	// 	axios.post((url),{searched:searchtext})
 	// 		.then((response)=>{
-	// 		   	console.log(response.data)
+	// 		   	// console.log(response.data)
      //                setSearch(response.data)
                   
      //           })   
 	// 	     .catch((err)=>{
-	// 	     	console.log('hi')
-     //              console.log(err)
+	// 	     	// console.log('hi')
+     //              // console.log(err)
 	// 	     })
 			
 	// }
@@ -92,15 +93,15 @@ let SeachEngine = ({setSearch}) =>{
 let IconNav =(props)=>{
 	let [scrollDirection,setScrollDirection] = useState('')
 	let [pastPosition,setPastPosition] = useState(0)
-	
+	let url = 'http://127.0.0.1:8000/'
      let scroller = () =>{
          let scroll = window.scrollY
          if(scroll>pastPosition){
          	 setScrollDirection('down')
-         	 console.log(scrollDirection)
+         	 // console.log(scrollDirection)
          } else if(scroll<pastPosition){
          	setScrollDirection('up')
-         	console.log(scrollDirection)
+         	// console.log(scrollDirection)
          }
          setPastPosition(scroll)
        
@@ -118,8 +119,8 @@ let IconNav =(props)=>{
             <div  className="icon-nav">
                
             	<div  className={"icon-conts"}>
-            	 <Link to={"/login"} >
-               	    <img src={`images/account-${props.color}.png`} alt=""/>
+            	 <Link to={props.user?"/account":"/login"} >
+               	    <img className={props.pfp?`pfp ${props.color} `:""} src={props.pfp?`${url}${props.pfp}`:`images/account-${props.color}.png`} alt=""/>
                  </Link>
             	
             	</div>

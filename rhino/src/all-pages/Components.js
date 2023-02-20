@@ -8,7 +8,7 @@ export let Filter =({start,setStart,limit,setLimit})=>{
    <div className="filter-widget">
      <div className="filter-inputs">
         <input onChange={(e)=>{
-         console.log(start)
+         // console.log(start)
                if(e.target.value<limit){
                   setStart(e.target.value)
                }
@@ -17,7 +17,7 @@ export let Filter =({start,setStart,limit,setLimit})=>{
                }
                }} placeholder={start} type="text" className="filter-inp"/>
         <input onChange={(e)=>{
-         console.log(limit)
+         // console.log(limit)
               
                   setLimit(e.target.value)
             }}
@@ -35,41 +35,41 @@ export let Filter =({start,setStart,limit,setLimit})=>{
 }
 
 export let Taka =(props)=>{
-   console.log(props.white)
-	return(
+   // console.log(props.white)
+   return(
            <div className={"taka"+" " +props.num}>
-           	 <img src={props.white?"images/taka-white.png":"images/taka.png"} alt="" className="tkimg"/>
-           	 <h1 className="tknum" >{props.taka}</h1>
+             <img src={props.white?"images/taka-white.png":"images/taka.png"} alt="" className="tkimg"/>
+             <h1 className="tknum" >{props.taka}</h1>
            </div>
-	)
+   )
 }
 export let Stars2 =(props)=>{
-	return(
+   return(
            <div className="stars">
-           	<img src="images/star-brown-filled.svg" alt="" className="star"/>
-           	<img src="images/star-brown-filled.svg" alt="" className="star"/>
-           	<img src="images/star-brown-filled.svg" alt="" className="star"/>
-           	<img src="images/star-brown.svg" alt="" className="star"/>
-           	<img src="images/star-brown.svg" alt="" className="star"/>
+            <img src="images/star-brown-filled.svg" alt="" className="star"/>
+            <img src="images/star-brown-filled.svg" alt="" className="star"/>
+            <img src="images/star-brown-filled.svg" alt="" className="star"/>
+            <img src="images/star-brown.svg" alt="" className="star"/>
+            <img src="images/star-brown.svg" alt="" className="star"/>
            </div>
-	)
+   )
 
 
 }
 
 export let Stars =({setStar})=>{
-	let [stars,setStars]=useState(0)
+   let [stars,setStars]=useState(0)
    
-	return(
+   return(
            <div onChange={setStar(stars)} className="stars">
-           	<img onClick={()=>setStars(1)} src={stars>0?"images/star-brown-filled.svg":"images/star-brown.svg"} alt="" className="star"/>
-           	<img onClick={()=>setStars(2)} src={stars>1?"images/star-brown-filled.svg":"images/star-brown.svg"} alt="" className="star"/>
-           	<img onClick={()=>setStars(3)} src={stars>2?"images/star-brown-filled.svg":"images/star-brown.svg"} alt="" className="star"/>
-           	<img onClick={()=>setStars(4)} src={stars>3?"images/star-brown-filled.svg":"images/star-brown.svg"} alt="" className="star"/>
-           	<img onClick={()=>setStars(5)} src={stars>4?"images/star-brown-filled.svg":"images/star-brown.svg"} alt="" className="star"/>
-           	
+            <img onClick={()=>setStars(1)} src={stars>0?"images/star-brown-filled.svg":"images/star-brown.svg"} alt="" className="star"/>
+            <img onClick={()=>setStars(2)} src={stars>1?"images/star-brown-filled.svg":"images/star-brown.svg"} alt="" className="star"/>
+            <img onClick={()=>setStars(3)} src={stars>2?"images/star-brown-filled.svg":"images/star-brown.svg"} alt="" className="star"/>
+            <img onClick={()=>setStars(4)} src={stars>3?"images/star-brown-filled.svg":"images/star-brown.svg"} alt="" className="star"/>
+            <img onClick={()=>setStars(5)} src={stars>4?"images/star-brown-filled.svg":"images/star-brown.svg"} alt="" className="star"/>
+            
            </div>
-	)
+   )
 
 
 }
@@ -85,11 +85,11 @@ export let FixedStars =({star})=>{
    
    return(
            <div  className="stars">
-            <img onClick={()=>setStars(1)} src={stars>0?"images/star-brown-filled.svg":"images/star-brown.svg"} alt="" className="star"/>
-            <img onClick={()=>setStars(2)} src={stars>1?"images/star-brown-filled.svg":"images/star-brown.svg"} alt="" className="star"/>
-            <img onClick={()=>setStars(3)} src={stars>2?"images/star-brown-filled.svg":"images/star-brown.svg"} alt="" className="star"/>
-            <img onClick={()=>setStars(4)} src={stars>3?"images/star-brown-filled.svg":"images/star-brown.svg"} alt="" className="star"/>
-            <img onClick={()=>setStars(5)} src={stars>4?"images/star-brown-filled.svg":"images/star-brown.svg"} alt="" className="star"/>
+            <img  src={stars>0?"images/star-brown-filled.svg":"images/star-brown.svg"} alt="" className="star"/>
+            <img  src={stars>1?"images/star-brown-filled.svg":"images/star-brown.svg"} alt="" className="star"/>
+            <img  src={stars>2?"images/star-brown-filled.svg":"images/star-brown.svg"} alt="" className="star"/>
+            <img src={stars>3?"images/star-brown-filled.svg":"images/star-brown.svg"} alt="" className="star"/>
+            <img  src={stars>4?"images/star-brown-filled.svg":"images/star-brown.svg"} alt="" className="star"/>
             
            </div>
    )
@@ -98,7 +98,7 @@ export let FixedStars =({star})=>{
 }
 
 export let Item = (props)=>{
-	let [liked,setLiked]=useState(()=>{
+   let [liked,setLiked]=useState(()=>{
        if(props.liked){
          return true
        }
@@ -109,9 +109,9 @@ export let Item = (props)=>{
    let data = props.data
    let url = 'http://127.0.0.1:8000'
    let dispatch = useDispatch()
-	return(
+   return(
            <div className="item-cont" >
-	         <div className="item">
+            <div className="item">
                <div className="image">
                   <img src={`${url}${props.data.image}`} alt=""/>
                </div>
@@ -123,31 +123,31 @@ export let Item = (props)=>{
                <div onClick={()=>setLiked(true)} className="like">
                 <img  src={liked?"images/liked.svg":"images/like.png"} alt=""/>
                </div>
-                              		
+                                    
                
              </div>
  
-             <div className="hoverer" >             	
-             	<div className="cont">
+             <div className="hoverer" >               
+               <div className="cont">
                   <Link to='/cart'>
-             	    <div onClick={() => dispatch({type: 'ADD' , payload:data ,count:1})} className="content">
-             		<h1  >Add to Cart</h1>
-             		<div className="imgs">
-             			<img src="images/grocery-cart.png" alt=""/>
-             			<img className="plus" src="images/plus.svg" alt=""/>
-             		</div>
-             	    </div>
+                   <div onClick={() => dispatch({type: 'ADD' , payload:data ,count:1})} className="content">
+                  <h1  >Add to Cart</h1>
+                  <div className="imgs">
+                     <img src="images/grocery-cart.png" alt=""/>
+                     <img className="plus" src="images/plus.svg" alt=""/>
+                  </div>
+                   </div>
                      
                   </Link>
-             		
-             	    	
-             	    <div className="purple-line">
-             	    	
-             	    </div>
-             	</div>
+                  
+                     
+                   <div className="purple-line">
+                     
+                   </div>
+               </div>
              </div>
 
                               
-		    </div>
-	)
+          </div>
+   )
 }

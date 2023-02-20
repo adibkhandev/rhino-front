@@ -11,10 +11,11 @@ const Reviewer = () => {
 	let location = useLocation()
 	let data = location.state
 	let context = useContext(Context)
-        let id = context.user || null
+        let user_data = context.user || null
         /*let userid = id.user_id || 28*/
         let userid = 28
-        console.log(id)
+
+
         let url = 'http://127.0.0.1:8000/addrev/'
 	let url2 = 'http://127.0.0.1:8000'
 	let [image1,setImage1]=useState(null)
@@ -37,8 +38,9 @@ const Reviewer = () => {
 		writeRef.current.focus()
 	}
         let postHandler =() =>{
+        	
                 let formdata = new FormData();
-        	formdata.append("userid",userid)
+        	formdata.append("userid",user_data.user_id)
         	formdata.append("pk",pk)
         	formdata.append("star",star)
         	formdata.append("writing",writing)

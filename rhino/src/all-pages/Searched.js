@@ -93,7 +93,7 @@ const Card =({result})=>{
                    		<h1 onClick={()=>dispatch({type: 'ADD' , payload:result ,count:1})} >Add tocart</h1>
                    	    </Link>
                    	   
-                         <Like id={result.id} ></Like>
+                         <Like product={result} id={result.id} ></Like>
                          
                    	</div>
             </div>

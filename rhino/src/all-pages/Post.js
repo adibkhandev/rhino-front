@@ -104,7 +104,7 @@ const WriteReview=({data})=>{
 }
 const ReviewSlide=({data,open,setOpen})=>{
 	let [reviews,setReviews] = useState()
-	console.log(open,'open')
+	console.log(data.rev,'dsfdslkjfs')
 	let [available,setAvailable] = useState(0)
     
 	return(
@@ -148,7 +148,7 @@ const Review = ({data}) =>{
 	let [images,setImages] = useState(null)
 	let url = 'http://127.0.0.1:8000/review/images/'
 	let base_url = 'http://127.0.0.1:8000'
-    console.log(data.id,'idd')
+    console.log(data,'data')
     useEffect(() => {
     	axios.post(url,{'id':data.id})
     	.then((response)=>{
@@ -163,7 +163,7 @@ const Review = ({data}) =>{
 	return(
       <div className="container-rev">
       	<div className="pfp">
-      		<img src="images/pfp.jpg" alt=""/>
+      		<img src={data.creater_pfp?`${base_url}${data.creater_pfp}`:"images/pfp.jpg"} alt=""/>
       	</div>
       	<div className="data">
       		<div className="namerate">

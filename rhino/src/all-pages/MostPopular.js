@@ -18,27 +18,27 @@ const MostPopular = () => {
     let [popular,setPopular]=useState([])
     let [load,setLoad] = useState(true)
   useEffect(() => {
-    console.log('use')
+    // console.log('use')
        axios.get(url)
        .then((response)=>{
-        console.log('hocche')
+        // console.log('hocche')
         setRank(response.data)
     	
-        console.log(response.data,'rank')
-        console.log('being s')
+        // console.log(response.data,'rank')
+        // console.log('being s')
 
        })
        .catch((err)=>{
-        console.log(err)
+        // console.log(err)
        })
   },[])
   useEffect(() => {
   	if(rank){
-  		console.log('rank ase')
+  		// console.log('rank ase')
     
   	setBoard(rank)
   	
-  	console.log(board)
+  	// console.log(board)
     }
   }, [rank])
   useEffect(() => {
@@ -49,7 +49,7 @@ const MostPopular = () => {
   	}
   }, [board])
     let resultHandler = () =>{
-    	console.log(popular,'pops')
+    	// console.log(popular,'pops')
     	setLoading(false)
     }
 	return (
@@ -69,7 +69,7 @@ const MostPopular = () => {
 			
 			<div className="populars">
 			        {!load?popular.map((item)=>{
-			        	console.log(item.image)
+			        	// console.log(item.image)
 			        	return(
                          <Link to="./post" state={item} >
 					      <div className="card">

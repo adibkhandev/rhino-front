@@ -15,6 +15,7 @@ import Liked from './all-pages/Liked'
 import LogReg from './all-pages/Log-reg'
 import Nav from "./all-pages/Nav"
 import Load from "./all-pages/Load"
+import Account from "./all-pages/Account"
 import {Taka} from "./all-pages/Components"
 
 import {AuthProvider,Context} from './all-pages/Context'
@@ -41,6 +42,7 @@ const App = () => {
               <Route path="/liked" element={<Liked/>} ></Route>
               <Route path="/login" element={<LogReg/>} ></Route>
               <Route path="/order" element={<Order/>} ></Route>
+              <Route path="/account" element={<Account/>} ></Route>
              
             </Routes>
              

@@ -13,15 +13,15 @@ let Landing = ({setSearch})=>{
   let [isout,setIsout] = useState(true)
   let [searchon,setSearchon]= useState(true)
   let local = localStorage.getItem('usertoken')
-  console.log(JSON.parse(local),'json')
+  // console.log(JSON.parse(local),'json')
     let context = useContext(Context)
-    console.log(context)
+    // console.log(context)
     let usersetter = context.usersetter
     let token = context.token
    
      useEffect(() => {
        if(token){
-         console.log(token,'tok')
+         // console.log(token,'tok')
        }
      }, [token])
   return(
@@ -51,7 +51,7 @@ let Home =(props)=>{
       let observer = new IntersectionObserver ((entries,options)=>{
         let entry = entries[0];
         props.referer(entry.isIntersecting)
-        console.log(entry)
+        // console.log(entry)
 
       })
       if(myref.current){
@@ -61,11 +61,11 @@ let Home =(props)=>{
   }, [])
 
    let scroller=()=>{
-     if(window.scrollY>450){
+     if(window.scrollY>400){
          setButtonthere(false)
         
      }
-     if(window.scrollY<450){
+     if(window.scrollY<400){
       setButtonthere(true)
      }
    }

@@ -51,8 +51,10 @@ const Cart = () => {
                               		
                               		<Taka num={"one"} taka={items.product.price} ></Taka>
                               	</div>
-                              	<div onClick={()=>dispatch({type:'DELETE',payload:items})} className="remover">
-                              		
+                              	<div  className="remover">
+                              		<div onClick={()=>dispatch({type:'DELETE',payload:items})} className="btn">
+                              			<img src="images/close.png" alt=""/>
+                              		</div>
                               	</div>
                               </div>
 						)

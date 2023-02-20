@@ -1,0 +1,152 @@
+.account-page{
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	.left{
+		width: 50%;
+		display: flex;
+		flex-direction: column;
+		margin-left: 3.5vw;
+
+		.pfp-cont{
+			margin-top: 3.5em;
+			margin-left: 1em;
+			height: 50%;
+			overflow: hidden;
+			img{
+			border-radius: 500px;
+               
+               height: 100%;
+			}
+			input{
+				display: none;
+			}
+		}
+		.username{
+        	height: 7em;
+        	width: auto;
+        	margin-left: 2.2em;
+        	margin-top: 5em;
+        	margin-bottom: -2em;
+        	color: #555555;
+        	input{
+        	height: 100%;
+            width: 100%;
+        	&::placeholder{
+        	@include FancyFont(6.1em,100) ;
+        	// font-style: "Manrope",sans-serif !important;
+            }
+        }
+        }
+        .number{
+        	margin-top: 2em;
+        }
+		.number,.mail{
+            margin-left: 2.2em;
+
+
+			input{
+            color: #555555;
+			padding: 0;
+			margin: 0;
+			border-radius: 4px;
+			margin-bottom: 2em;
+			width: 44em;
+             padding-left: 2em;
+			height: 4em;
+			background-color: #f1f1f1;
+			@include Font(1em,100) ;
+			box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+		  }
+		}
+
+	}
+	.right{
+		margin-top: 3vh;
+		width: 50%;
+			
+		h1{
+			@include FancyFont(2.2rem,100);
+			color: #555555;
+			margin-bottom: 0.3em;
+			margin-top: 0.3em;
+		}
+		.btns{
+			display: flex;
+			margin-top: 1.4em;
+			button{
+				border-radius: 3px;
+			padding: 1em 9em;
+			margin-right: 2em;
+			@include Font(1em,100);
+
+			}
+			.btn-1{
+				background-color: #27002a;
+				color: white;
+			}
+			.btn-2{
+				background-color: transparent;
+				border-style: solid;
+				border-color: red;
+				color: red;
+			}
+		}
+		.adress{
+		padding: 0;
+		input{
+		font-family: "Manrope",sans-serif !important;
+		font-size: 1.4em !important;
+			padding: 0;
+			margin: 0;
+			
+			width: 40em;
+            box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+            padding-left: 1.4em;
+            padding-bottom: 10em;
+			height: 3em;
+			background-color: #f1f1f1;
+			&::placeholder{
+            @include Font(1em,100) ;
+        	
+        	 
+            }
+		  }
+		}
+			.wishlist,.orders{
+				.ash{
+					
+				}
+                .images{
+                	display: flex;
+                	align-items: center;
+                }
+				.go-to{
+					border-radius: 20em;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					background-color: #f1f1f1;
+					box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+					width: 10em;
+					height: 10em;
+					img{
+						opacity: 0.8;
+						margin: 0 ;
+						height: 40%;
+					}
+				}
+				.images{
+					display: flex;
+				}
+				height: 16em;
+				overflow: hidden;
+				img{
+					height: 12em;
+					margin-right: 1.2em;
+				}
+			}
+		
+	}
+	
+}

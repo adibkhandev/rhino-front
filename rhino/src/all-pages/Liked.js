@@ -15,34 +15,19 @@ const Liked = () => {
 		],
 	}
    let context = useContext(Context)
-   let id = context.user? context.user.user_id : null
-	let url = 'http://127.0.0.1:8000/liked/'
+   let likes = context.user? context.userdata.liked : null
+	
     let list = [0,1,2,3,4]
-    let [likedID,setLikedID]= useState()
+    
     let [hover,setHover]=useState(0)
-    useEffect(() => {
-    	if(id){
-    		axios.post(url,{'id':id})
-    		 .then((response)=>{
-    		 	console.log(response.data,'got this')
-                setLikedID(response.data.liked)
-                console.log(likedID)
-    		 })
-    		 .catch((err)=>{
-    		 	console.log(err)
-    		 })
-    	}
-    	else{
-    		console.log('unauthorized')
-    	}
-    }, [])
+    console.log(likes,'llll')
 	return (
 		<>
 	<div className="liked-page">
 	    <Nav colour={"ash"} visible={true} stick={false} ></Nav>
 
 		<div className="items">
-					{likedID ? likedID.map((list)=>{
+					{likes ? likes.map((list)=>{
 						return(
 							  <Item data={list} liked={true}></Item>
                               
