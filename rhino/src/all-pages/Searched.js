@@ -1,8 +1,8 @@
 import React,{useState,useContext} from 'react'
 import {useDispatch} from 'react-redux'
-import Nav from './Nav'
+import {Nav} from './Nav'
 import {Link} from "react-router-dom"
-import {Taka,FixedStars,Filter} from "./Components"
+import {Taka,FixedStars,Filter,NotFound} from "./Components"
 import Like from './Like'
 import Context from './Context'
 const  Searched = () => {
@@ -17,43 +17,44 @@ const  Searched = () => {
          
          	    
          {
-         	!loading?(
+         	
          	  <>	
         	  <Nav stick={true} ase={true} searchon={true} visible={true} colour={'ash'}></Nav>
-              <Results results={results} > </Results>
+              <Results loading={loading} results={results} > </Results>
               </>
-              ):
-              <h1>loading</h1>
+              
          }        
          	
         </div> 
 		</>
 	)
 }
-const Results=({results})=>{
+const Results=({results,loading})=>{
 	let [start,setStart]=useState(0)
 	let [limit,setLimit]=useState(20000)
 
 	console.log(results,'got')
-	let resultFiltered = results.filter((result)=>{
+	let resultFiltered = results?results.filter((result)=>{
 		return start<=result.price && result.price<=limit
-	})
+	}):[]
 	return(
 		<>
 		  
 		  <div className="all">
 		   <Filter start={start} setStart={setStart} limit={limit} setLimit={setLimit} /> 
-	       <div className="cards">
-
-	       	  {results?resultFiltered.map((result)=>{
+	       {!loading && results.length!=0?(
+	       	 <div className="cards">
+              
+	       	  {resultFiltered.map((result)=>{
 	       	  	return(
 	       	  
                    <Card result={result} ></Card>
 	       	  	
 	       	  
-	       	  	)
-	       	  }):'hi'}
-	       </div>	
+	       	    )})
+	       	   }
+	          </div>
+	        ):<NotFound></NotFound>}	
 		  	
 		  </div>
 		</>
@@ -77,7 +78,10 @@ const Card =({result})=>{
           <div className="cont">
             <Link to="/post" state={result} >
             <div className="card">
+                    <div className="image-cont">
+                    	
                    	<img className="card-img" src={`${url2+result.image}`} alt=""/>
+                    </div>
                    	<h1 className="title">
                    		{result.name}
                    	</h1>

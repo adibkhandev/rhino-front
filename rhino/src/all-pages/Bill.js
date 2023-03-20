@@ -2,17 +2,19 @@ import React,{useState,useContext} from 'react'
 import {useSelector,useDispatch} from 'react-redux'
 import Navigation from './Navigation-ash'
 import {Link} from "react-router-dom"
-import Nav from './Nav'
+import {Nav} from './Nav'
 import {Taka} from "./Components"
 import Counter from './Counter'
 import Context from './Context'
 import axios from 'axios'
 const Bill = () => {
 	let list = [0,1,2,3]
+	
 	let data = useSelector((state)=> state.data)
 	let url = 'http://127.0.0.1:8000/orderplace/'
 	let url2 = 'http://127.0.0.1:8000'
 	let context = useContext(Context)
+	let bill = context.biller
 	let id = context.user.user_id || null
 	let products = data.map((items)=>{
 		return {
@@ -25,7 +27,7 @@ const Bill = () => {
 	let [billed,setBilled]=useState(false)
 	return (
 		<>
-		<div className="total-bill">
+		<div className={billed?"total-bill center":"total-bill"}>
 			
 		<div   className={billed?"int-bill off":"int-bill"  }>
 		        	<Nav colour={"ash"} visible={true} stick={false} ></Nav>
@@ -45,9 +47,9 @@ const Bill = () => {
                               	</div>
                               	<div className="trio">
                               		<Taka num={"minier"} taka={dataItems.product.price} ></Taka>
-                              		<Counter id={i} count={dataItems.count} ></Counter>
+                              		<Counter movable={true} id={i} count={dataItems.count} ></Counter>
                               		
-                              		<Taka num={"minier"} taka={dataItems.product.price} ></Taka>
+                              		<Taka num={"minier"} taka={dataItems.product.price*dataItems.count} ></Taka>
                               	</div>
                               </div>
 						)
@@ -55,7 +57,7 @@ const Bill = () => {
 				</div>
 				<div className="net">
 					<h1 className="net-header" >Net total  :</h1>
-					<Taka  num={"zero"} taka={"2200"} ></Taka>
+					<Taka  num={"zero"} taka={bill} ></Taka>
 				</div>
 			</div>
 			<div className="details">
@@ -179,6 +181,7 @@ const Bill = () => {
 		    >
 		 	Confirm Order
 		 </button>
+		 
 		</div>
 			
 		</div>

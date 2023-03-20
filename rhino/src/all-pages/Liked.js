@@ -1,7 +1,7 @@
 import React,{useState,useEffect,useContext} from 'react'
 import axios from 'axios'
 import Context from './Context'
-import Nav from './Nav'
+import {Nav} from './Nav'
 import {Taka,Item} from './Components'
 const Liked = () => {
 	let da = {
@@ -15,7 +15,7 @@ const Liked = () => {
 		],
 	}
    let context = useContext(Context)
-   let likes = context.user? context.userdata.liked : null
+   let likes = context.userdata? context.userdata.liked : null
 	
     let list = [0,1,2,3,4]
     

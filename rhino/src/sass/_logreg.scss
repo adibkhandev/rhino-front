@@ -1,3 +1,8 @@
+.viewer{
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+}
 #logregpage{
 	height: 100vh;
 	overflow: hidden;
@@ -30,7 +35,7 @@
 .login-background{
 	position: relative;
 	height: 100vh;
-	overflow: hidden;
+	
 	width: 100vw;
 	background: rgb(221,214,243);
   background: linear-gradient(90deg, rgba(221,214,243,1) 25%, rgba(250,172,168,1) 100%);
@@ -47,6 +52,8 @@ overflow: hidden;
 	position: relative;
 
 	.luffy-1{
+		font-size: clamp(1rem,1.6vw,1.6rem);
+		width: 15em;
     position: absolute;
     bottom: -2%;
     left: 4.5%;
@@ -54,6 +61,8 @@ overflow: hidden;
       transition-delay: 2.2s;
 	}
 	.luffy-2{
+		font-size: clamp(1rem,1.6vw,1.6rem);
+		width: 15em;
     position: absolute;
     bottom: -2%;
     right: 4.5%;
@@ -62,21 +71,24 @@ overflow: hidden;
 
 	}
 		.luffy-1-active{
+			font-size: clamp(1rem,1.6vw,1.6rem);
+			width: 15em;
     position: absolute;
-    bottom: -72%;
-    left: 4.5%;
+    
+    
     transition: 1.2s ease-in-out;
 	}
 	.luffy-2-active{
+		font-size: clamp(1rem,1.6vw,1.6rem);
+		width: 15em;
     position: absolute;
-    bottom: -72%;
-    right: 4.5%;
+   
     transition: 1.2s cubic-bezier(.69,.17,.29,.87);
 	}
 }
 .headline{
-	@include FancyFont(2.6rem,100);
-	margin-bottom:2rem ;
+	@include FancyFont(clamp(2.6rem,3vw,3.2rem),100);
+	margin-bottom:0.8em ;
 }
 .inputs{
 	transition: 1s cubic-bezier(.69,.17,.29,.87);
@@ -92,15 +104,17 @@ overflow: hidden;
 	// @include FancyFont(1.6em,100);
 	color: white;
 	position: absolute;
-	top: 20%;
-	right: 13%;
+	
 	height: 60vh;
-	width: 30rem;
+	width: 30em;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 
 	input{
+		//
+		font-size: clamp(0.78rem,1vw,0.96rem);
+		//
 	color: white;
 	border-radius: 40px;
 	border-style: solid;
@@ -110,34 +124,42 @@ overflow: hidden;
 	text-align: center;
 	&::placeholder{
 		color: white;
-		@include Font(0.8rem,100);
+		@include Font(inherit,100);
 	}
 }
-
+.twin{
+	display: flex;
+	font-size: inherit;
+}
 .inp-log{
-	padding: 1.45rem 0.6rem;
-	margin:0 0.5rem;
+	padding: 1.45em 0.35em;
+	margin:0 0.5em;
 }
 }
 .phone, .email{
-	@include Font(0.8rem,100);
-	padding: 1.5rem 8.8rem;
+	@include Font(inherit,100);
+	padding: 1.5em 8.8em;
 	color: white;
 }
 
 .adress{
-	@include Font(0.8rem,100);
-	padding: 1.5rem 5.8rem;
+	@include Font(inherit,100);
+	padding: 1.5em 5.8em;
 	color: white;
 }
 .password{
-@include Font(0.8rem,100);
-	padding: 1.4rem 2.8rem;
+@include Font(inherit,100);
+	padding: 1.4em 2.8em;
 	color: white;	
 }
 .but{
+
 	button{
-		padding: 1.5rem 2.6rem;
+		//
+		font-size: clamp(0.7rem,0.82vw,0.9rem);
+		//
+		width: 14em;
+		height: 5em;
 		border-radius: 40px;
 		background-color: white;
 		color: rgb(221,214,243);
@@ -153,8 +175,7 @@ overflow: hidden;
 	}
 		color: white;
 	position: absolute;
-	top: 30%;
-	left: 10%;
+
 	height: 37vh;
 	width: 30rem;
 	display: flex;
@@ -164,6 +185,7 @@ overflow: hidden;
 	input{
 		margin-bottom: 1em;
 	color: white;
+	font-size: clamp(0.8rem,1vw,1.06rem);
 	border-radius: 40px;
 	border-style: solid;
 	border-width: 0.4rem;
@@ -172,24 +194,28 @@ overflow: hidden;
 	text-align: center;
 	&::placeholder{
 		color: white;
-		@include Font(0.8rem,100);
+		@include Font(inherit,100);
 	}
 }
 
 
 .email , .password{
-	@include Font(0.8rem,100);
-	padding: 1.5rem 8.2rem;
+	@include Font(clamp(0.8rem,1vw,1.06rem),100);
+	padding: 1.5em 8.2em;
 	color: white;
 }
 
 
 .but{
+
 	button{
-		padding: 1.6rem 4.4rem;
+			font-size: clamp(0.7rem,0.82vw,0.9rem);
+    // font-size: 12rem !important;
+		padding: 1.6em 4.4em;
 		border-radius: 40px;
 		background-color: white;
 		color: rgb(221,214,243);
+
 
 	}
 }
@@ -203,6 +229,76 @@ overflow: hidden;
 	margin-top:1.4em;
 	margin-bottom: 1em;
 	color: white;
-	@include Font(0.7em,400);
+	//
+	@include Font(clamp(0.7rem,0.82vw,0.9rem),400);
+	//
 	opacity: 0.8;
+}
+@media (width<880px) {
+ .viewer{
+ 		.reg-background,.login-background{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+	}
+	.inputs,.login-iputs{
+    position: static !important;
+    // top: 0;
+    // right: 0;
+    // left:0;
+    // bottom: 0;		
+	}
+
+
+ }	
+}
+@media (width>880px) {
+	.viewer{
+		.inputs{
+      top: 20%;
+	    right: 13%;
+		}
+		.login-inputs{
+				top: 30%;
+	      left: 10%;
+		}
+	}
+	
+}
+@media (width <890px) {
+	.luffy-1{
+    transform: rotate(90deg);
+    left: 0 !important;
+	}
+	.luffy-1-active{
+		transform: rotate(90deg);
+		left: -70vw;
+		bottom: 2%;
+
+	}
+	.luffy-2{
+    transform: rotate(270deg);
+    right: 0 !important;
+	}
+	.luffy-2-active{
+		transform: rotate(270deg);
+		right: -70vw;
+		bottom: 2%;
+
+	}
+}
+@media (width >890px) {
+	.luffy-1-active{
+		 bottom: -72%;
+		 left: 4.5%;
+	}
+	.luffy-2-active{
+		 bottom: -72%;
+     right: 4.5%;
+	}
+}
+@media (width<780px) {
+	 .luffy-1 , .luffy-2 , .luffy-1-active , .luffy-2-active{
+	 	font-size: clamp(0.6rem,0.7vw,0.82rem) !important;
+	 }
 }

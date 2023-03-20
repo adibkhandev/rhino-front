@@ -5,20 +5,23 @@ import axios from 'axios'
 export let Context = createContext()
 
 export let AuthProvider = ({children}) =>{
+    let localStorageRefresh = localStorage.getItem('refreshtoken')
+    let localStorageAccess = localStorage.getItem('usertoken')
+    let localStorageUserData = localStorage.getItem('userdata')
+    let localStorageUser = localStorage.getItem('user')
 	let [search,setSearch] = useState(null)
     let [category,setCategory] = useState(null)
     let [offer,setOffer]=useState(null)
     let [result,setResult] = useState(null)
     let [loading,setLoading] = useState(true)
     let [board,setBoard]=useState(null)
-    let [user,setUser]=useState(null)
+    let [biller,setBiller] = useState(0)
+    let [user,setUser]=useState(JSON.parse(localStorageUserData)|| null)
     let navigate = useNavigate()
-    let localStorageRefresh = localStorage.getItem('refreshtoken')
-    let localStorageAccess = localStorage.getItem('usertoken')
     let [refresh,setRefresh] = useState(JSON.parse(localStorageRefresh)|| null)
 	const [token, setToken] = useState(JSON.parse(localStorageAccess) || null)
 	//contains user id
-	let [data,setData]= useState(null)
+	let [data,setData]= useState(JSON.parse(localStorageUser)||null)
 	//
 	// console.log(localStorageAccess,'access')
 	// console.log(JSON.parse(localStorage.getItem('refreshtoken')),'refresh')
@@ -35,6 +38,10 @@ export let AuthProvider = ({children}) =>{
 	let search_url_cat = 'http://127.0.0.1:8000/search/cat/'
     // console.log(token,'token')
 
+
+   //
+   //Liked
+   //
     useEffect(() => {
     	// console.log(data,'darttaa')
     	// console.log('liking')
@@ -55,6 +62,12 @@ export let AuthProvider = ({children}) =>{
 
     	}
     }, [data])
+    //
+    //
+
+    //
+    //User
+    //
     useEffect(() => {
     	// console.log('chaaaaaaa')
     	if(data){
@@ -63,6 +76,7 @@ export let AuthProvider = ({children}) =>{
     		 	// console.log('chaaaaaaa')
     		 	// console.log(response.data)
                 setUser(response.data)
+                localStorage.setItem('userdata',JSON.stringify(user))
                 // console.log(user,'is it')
                 // console.log('chaaaa')
     		 })
@@ -71,8 +85,18 @@ export let AuthProvider = ({children}) =>{
     		 })
     		 // console.log('chodaaa')
     		}
+    	else{
+    		localStorage.removeItem('userdata')
+    	}
     }, [data])
 
+
+    //
+    //
+
+    //
+    //after refresh
+    //
 	useEffect(() => {
 		let Now = setInterval(()=>{
           if(token!=null){
@@ -81,6 +105,7 @@ export let AuthProvider = ({children}) =>{
 		     // console.log(response.data.refresh,'reeeeeeeeeeee')
 			 setToken(response.data.access)
 			 localStorage.setItem('usertoken',JSON.stringify(token))
+
 			 // console.log('hello'+token)
 
 		   })
@@ -97,6 +122,14 @@ export let AuthProvider = ({children}) =>{
 			// console.log('cleared')
 		};
 	}, [token,refresh])
+
+	//
+	//
+	//
+
+	//
+	//token setter
+	//
 useEffect(() => {
 	if(localStorageAccess){
 		setToken(JSON.parse(localStorageAccess))
@@ -108,12 +141,11 @@ useEffect(() => {
      }		
 	}
 }, [token])
-useEffect(() => {
-    // console.log(result,'result mf')
-}, [result])
-useEffect(()=>{
-	// console.log(category,'stats')
-},[category])
+
+   //
+   //
+   //
+
 
 //search api request
 
@@ -166,7 +198,7 @@ useEffect(() => {
 		if(userdata){
 		setData(userdata)
 		   if(data){
-		     // console.log(data.user_id)
+		     localStorage.setItem('user',JSON.stringify(data))
 		   }
 	    }
            
@@ -189,9 +221,12 @@ useEffect(() => {
 		setUser(null)
 		setToken(null)
 		setRefresh(null)
-        // localStorage.removeItem('refreshtoken')
-		// localStorage.removeItem('usertoken')
+        localStorage.removeItem('user')
+		localStorage.removeItem('userdata')
+		localStorage.removeItem('usertoken')
+		localStorage.removeItem('refreshtoken')
 		navigate('/')
+		console.log(data)
 	}
 
     let searcher =(search_keyword)=>{
@@ -201,7 +236,7 @@ useEffect(() => {
     }
 
 	return(
-        <Context.Provider value={{'logout':logout,'loading':loading,'setloading':setLoading ,'function':tokensetter,'token':token,'user':data,'usersetter':usersetter,'setsearch':setSearch,'search_result':result,'set_category':setCategory,'setresult':setResult,'board':board,setBoard:setBoard,'setUser':setUser,'userdata':user,'setUserdata':setUser}} >
+        <Context.Provider value={{'biller':biller,'setBiller':setBiller,'logout':logout,'loading':loading,'setloading':setLoading ,'function':tokensetter,'token':token,'user':data,'usersetter':usersetter,'setsearch':setSearch,'search_result':result,'set_category':setCategory,'setresult':setResult,'board':board,setBoard:setBoard,'setUser':setUser,'userdata':user,'setUserdata':setUser}} >
         	{children}
         </Context.Provider>
 	)

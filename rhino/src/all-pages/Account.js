@@ -62,12 +62,13 @@ const Account = () => {
 					</h1>
 					<input onChange={(e)=>setAdress(e.target.value)} value={adress} type="text" placeholder={userdata.adress}/>
 				</div>
-				<div className="wishlist">
+				<div className="lists">
+					<div className="wishlist">
 					<h1>
 						WishList
 					</h1>
 					<div className="images">
-						{ userdata.liked.map((item)=>{
+						{ userdata.liked.slice(0,3).map((item)=>{
 							return(
 								<img src={`${url}${item.image}`} alt=""/>
 						    )
@@ -86,7 +87,7 @@ const Account = () => {
 					</h1>
 					<div className="images">
 						{
-							userdata.ordered.map((item)=>{
+							userdata.ordered.slice(0,3).map((item)=>{
 								return(
 								<img src={`${url}${item.product[0].image}`} alt=""/>
 							    )
@@ -98,6 +99,7 @@ const Account = () => {
 						</div>
 						</Link>
 					</div>
+				</div>
 				</div>
 				<div className="btns">
 					<button onClick={()=>{
@@ -129,3 +131,4 @@ const Account = () => {
 }
 
 export default Account
+

@@ -4,9 +4,9 @@ import Taka from './Components'
 import axios from 'axios'
 import Context from './Context'
 
-const Nav = (props) => {
-	let [searchon,setSearchon] = useState(true)
-	let list = [0,1,2]
+export const Nav = (props) => {
+	 let [searchon,setSearchon] = useState(true)
+	 let list = [0,1,2]
      let context = useContext(Context)
      let data = context.user
      let setSearch = context.setsearch
@@ -37,14 +37,14 @@ const Nav = (props) => {
             	
             	<h1 className={`texters + ${props.colour}`}>Explore</h1>
             </div>
-            <div id={props.ase?"":"less"} className={props.searchon?"searcher appear":"searcher none"}>
+            
             	
             {/*search engine*/}
         
-            	<SeachEngine  setSearch={setSearch} ></SeachEngine>
+            	<SearchEngine searchon={props.searchon} ase={props.ase}  setSearch={setSearch} ></SearchEngine>
 
             {/**/}
-            </div>
+            
             <IconNav pfp={pfp} color={props.colour} user={context.user} ></IconNav>
 
 
@@ -56,7 +56,7 @@ const Nav = (props) => {
 	)
 }
 
-let SeachEngine = ({setSearch}) =>{
+export let SearchEngine = ({setSearch,searchon,ase}) =>{
 
 	let url = 'http://127.0.0.1:8000/search/'
 	let [searchtext,setSearchtext]=useState('')
@@ -78,6 +78,8 @@ let SeachEngine = ({setSearch}) =>{
 	}
 	return(
          <>
+        
+         <div id={ase?"":"less"} className={searchon?"searcher appear":"searcher none"}>
          <input onChange={(e)=>setSearchtext(e.target.value)} placeholder="Search for products" value={searchtext} type="text" className="searcher-inp"/>
             	<div className="submit">
             		<Link to="/searched">
@@ -86,6 +88,10 @@ let SeachEngine = ({setSearch}) =>{
             		</button>
             		</Link>
             	</div>
+          </div>
+         	
+      
+
          </>
 	)
 }
@@ -139,4 +145,3 @@ let IconNav =(props)=>{
 	)
 }
 
-export default Nav

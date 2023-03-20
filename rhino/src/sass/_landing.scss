@@ -1,22 +1,35 @@
+
 .land{
+	width: 100vw;
+	height:auto;
 	position: relative;
+		contain: paint;
+	
+}
+.floating-search{
+	display: none;
+}
+.land{
 	
 }
 input , button{
 	outline:none;
 	border:none;
-	@include Font(0.8rem,100)
+	// @include Font(0.8rem,100)
 	// font-family: 'Manrope', sans-serif;
 }
 .page1{
-	height: 115vh;
+
+	height: 118vh;
+	max-height: 135vw;
+	min-height: 800px;
 	background: url('landing-background.jpg');
 	background-repeat: no-repeat;
 	background-size:cover;
-	overflow: hidden;
+	 background-attachment: fixed;
+	// overflow: hidden;
 	position:relative;
-	button , h1{
-		font-family: 'Bangers', cursive;
+	 h1{
 
 	}
 }
@@ -50,11 +63,13 @@ input , button{
     	letter-spacing: 0.35em;
 
     	h1{
-    		font-size: 8.5em;
+    		
     		color: white;
     		line-height: 1.285;
     		font-weight: 600;
     		line-height: 1.3;
+    		font-family: 'Bangers', cursive;
+           
     		span{
     			color: red;
     		}
@@ -63,19 +78,29 @@ input , button{
     }
 }
 #part1{
+	margin-top: 20vh;
+	width: auto;
+	h1{
+    
+	max-width: 8em;
+	 font-size: clamp(5rem,8vw,8rem)!important;
+	}
+	overflow: hidden;
 	order: 2;
 	display: flex;
 	flex-direction: column;
 	justify-content:center ;
-	width: 40vw;
-	margin-right: 12vw;
-	margin-left: 7.5vw;
-	margin-top: -2.5em;
+	
+
+	
+	
+	margin-top: -2em;
 }
 #part2{
-	width: 40vw;
+	width: 50vw;
 	height: 88vh;
     position: relative;
+    margin-bottom: 1.6em;
     img{
     	position:absolute;
     	
@@ -132,15 +157,15 @@ input , button{
 	margin-top: 1.1em;
 }
 .arrow-down-button{
-	height: 140px;
-	width: 140px;
+	height: 14vh;
+	width: 14vh;
 	border-radius:250px;
 	outline: none;
 	border:none;
 	position:absolute;
 	z-index: 2;
-	bottom: 60px;
-	right: 60px;
+	bottom: 6vw;
+	right: 6vw;
 	img{
 		height:60%;
 		transform: rotate(90deg);
@@ -150,4 +175,101 @@ input , button{
 	opacity: 0;
 	transition-duration: 0.2s;
 	transition-timing-function: ease-in-out;
+}
+@media (width < 1000px) {
+	//  body{
+ 	// overflow-x: hidden;
+    //  }
+	.floating-search{
+		font-size: 0.8rem;
+		display: block;
+		position: absolute;
+		bottom: min(7vw,240px);
+	
+			.searcher{
+       
+    	display: flex;
+    	height: 5.6em;
+    	width: 90vw;
+    	
+    	
+       
+         input{
+             opacity: 0.85;
+            @include Font(inherit,100);
+         	width: 80%;
+            height: fixed;
+         	background-color: white;
+         	border-radius: 100px;
+         	padding-left: 5%;
+         	box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;  
+               order: 1;
+         }
+         .submit{
+             opacity: 0.85;
+           width: 5.6em;
+           height: 5.6em;
+         	box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;  
+            border-radius: 100px;
+            margin-right: 2%;
+            background-color: white;
+            display: flex;
+         		justify-content: center;
+         		align-items: center;
+         	button{
+
+         		width: 100%;
+                height: 100%;
+         		border-radius: 100px;
+         		height: 5.2em;
+         		background-color: white;
+         		img{
+         			width:35%;
+
+         		}
+         	}
+         }
+    }
+		}
+	
+	#root{
+		width: 100vw;
+	}
+	.land{
+		width: 100vw !important;
+	}
+	.page1{
+			display: flex;
+	justify-content: center;
+	align-items: center
+	}
+	.arrow-down-button{
+		display: none;
+	}
+	#part2{
+		display: none;
+	}
+	#part1{
+		height: auto;
+        overflow: visible;
+		h1{
+
+			font-size: min(11vw,6rem)!important;
+			text-align: center;
+			width:4em;
+		
+		height: auto;
+		span{
+			display: block;
+		}
+	}
+	}
+	
+		.hero-section{
+			margin-top: 20vh;
+			height: auto;
+			position: static;
+			// left: 16vw;
+			// bottom: 28vh;
+		}
 }

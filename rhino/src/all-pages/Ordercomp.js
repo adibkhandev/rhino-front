@@ -18,7 +18,7 @@ const Ordercomp = ({data}) => {
                                    </div>
                                    <div className="trio">
                                         <Taka white={!data.delicered} num={"zero"} taka={data.product[0].price} ></Taka>
-                                        <Counter white={!data.delicered} fixed={true} count={data.orderNumber}></Counter>
+                                        <Counter movable={true} white={!data.delicered} fixed={true} count={data.orderNumber}></Counter>
                                         
                                         <Taka white={!data.delicered} num={"zero"} taka={data.product[0].price * data.orderNumber} ></Taka>
                                    </div>

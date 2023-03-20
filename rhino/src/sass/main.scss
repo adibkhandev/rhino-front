@@ -61,9 +61,9 @@ a.nostyle:link {
     color: inherit;
    
 }
-button{
-	@include Font(0.75rem,100);
-}
+// button{
+// 	@include Font(0.75rem,100);
+// }
 a.nostyle:visited {
     text-decoration: inherit;
     color: inherit;

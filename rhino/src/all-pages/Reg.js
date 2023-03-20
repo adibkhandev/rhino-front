@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import Navigation from './Navigation-ash'
-import Nav from './Nav'
+import {Nav} from './Nav'
 import axios from 'axios'
 const Reg = (props) => {
     let url = 'http://127.0.0.1:8000/signup/'

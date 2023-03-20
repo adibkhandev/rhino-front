@@ -8,8 +8,8 @@
 	.content-cont{
 		margin-top: 4%;
 	
-		width: 86%;
-		height: 80%;
+		width: 80vw;
+		height: min(80%,60vw);
 		display: flex;
         flex-direction: column;
 
@@ -54,16 +54,18 @@
         	// align-items: center;
         	// justify-content: center;
         	&:hover{
+        		transform: scale(1.01);
         		box-shadow: rgba(0, 0, 0, 0.3) 0px 20px 30px;
         		transition: 0.5s ease-in-out;
         	}
         	img{
         		width: 120%;
         		height: auto;
+        		min-height: 100%;
         	}
         	h1{
         		position: absolute;
-        		@include FancierFont(5vw,100);
+        		@include FancierFont(4vw,100);
         		color: white;
         	}
         }
@@ -77,9 +79,13 @@
 			width: 49.5%;
 			height: 100%;
 			margin-right: 0.5%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 			
 			h1{
-				top:min(8vh,20%);
+				font-size: 5vw;
+				top:min(7vh,30%);
 				left: 10%;
 			}
 			@keyframes anime-figures {
@@ -220,7 +226,7 @@
 				animation-duration: 1.3s;
 				animation-delay: 3s;
 				animation-fill-mode: forwards;
-				margin-top: 300%;
+				margin-top: 500%;
 			}
 			
 		}
@@ -262,9 +268,13 @@
 			width: 49.5%;
 			height: 100%;
 			margin-left: 0.5%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 			@keyframes anime-figures {
 				0%{
 					opacity: 0;
+
 				}
 				100%{
 					opacity: 1;
@@ -277,12 +287,12 @@
 				animation-duration: 1.3s;
 				animation-delay: 2.4s;
 				animation-fill-mode: forwards;
-				margin-left: -170%;
+				margin-left: -280%;
 			}
 			h1{
-				top:6%;
-				left:4.2%;
-				@include FancierFont(6.35vw,100);
+				// top:6%;
+				// left:4.2%;
+				@include FancierFont(5.35vw,100);
 			}
 		}
 

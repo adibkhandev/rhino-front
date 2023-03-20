@@ -1,6 +1,6 @@
 import React,{useState,useEffect,useContext} from 'react'
 
-import Nav from './Nav'
+import {Nav} from './Nav'
 import Ordercomp from './Ordercomp'
 import axios from 'axios'
 import {Taka} from "./Components"

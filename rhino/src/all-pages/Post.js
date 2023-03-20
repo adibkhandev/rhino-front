@@ -5,8 +5,11 @@ import {useLocation} from 'react-router-dom'
 import {Link} from "react-router-dom"
 import axios from 'axios'
 const Post =(props)=>{
+	let base_url = 'http://127.0.0.1:8000'
 	let store = useSelector((state)=> state.data)
 	let [open,setOpen]=useState(false)
+	let [num,setNum] = useState(null)
+	let [images,setImages]=useState([])
 	console.log('hello')
 	console.log(store)
 	let location = useLocation()
@@ -14,22 +17,63 @@ const Post =(props)=>{
 	console.log(data)
 	return(
 		<div className="post-page">
-			<MainPost open={open} data={data} ></MainPost>
+			<MainPost num={num} open={open} data={data} ></MainPost>
 			<WriteReview  data={data} ></WriteReview>
-			<ReviewSlide open={open} setOpen={setOpen} data={data}></ReviewSlide>
+			<ReviewSlide num={num}  setImages={setImages} setNum={setNum} open={open} setOpen={setOpen} data={data}></ReviewSlide>
+			{num!=null?(
+      	    <div
+             onClick={()=>{
+             	setNum(null)
+             	setImages([])
+             }}
+      	     className={'revimager'} >
+			 <div className="image">
+				<img src={base_url+images[num].image} alt=""/>
+			 </div>
+			 <div
+              onClick={(e)=>{
+              	e.stopPropagation()
+              	if(num<images.length-1){
+              	setNum(num+1)
+              	console.log(num)
+              }
+              }}
+			  className="directioners"
+              id="right"
+			  >
+				<img src="images/arrow-icon.png" alt=""/>
+			 </div>
+			 <div
+              onClick={(e)=>{
+              	e.stopPropagation()
+              	if(num>0){
+              		setNum(num-1)
+              		console.log(num)
+              	}
+              }}
+			  className="directioners"
+              id="left"
+			  >
+				<img src="images/arrow-icon.png" alt=""/>
+			 </div>
+		</div>
+      		)
+      	:'hi'
+      }
 		</div>
     
 	)
 }
-const MainPost = ({data,open}) => {
+const MainPost = ({data,open,num}) => {
 	let [count,setCount]=useState(1)
 	let url2 = 'http://127.0.0.1:8000'
 	let dispatch = useDispatch()
 	let cartid = useId()
     console.log("post",data)
+    console.log(num,'sdffdsfjoal')
 	return (
 		     <>
-			   <div className={open?"post reve":"post revless"}>
+			   <div id={num!=null?'blur':''} className={open?"post reve":"post revless"}>
 			   	
 			   
 				<div className="picture">
@@ -102,7 +146,7 @@ const WriteReview=({data})=>{
        </>
 	)
 }
-const ReviewSlide=({data,open,setOpen})=>{
+const ReviewSlide=({data,open,setOpen,setImages,setNum,num})=>{
 	let [reviews,setReviews] = useState()
 	console.log(data.rev,'dsfdslkjfs')
 	let [available,setAvailable] = useState(0)
@@ -111,29 +155,29 @@ const ReviewSlide=({data,open,setOpen})=>{
 <>
 
 	<div className={available===0?"semi-circle-1-active":"semi-circle-1-inactive"}>
-		
 	</div>
 	<div onClick={()=>{{
 		setAvailable(1)
 		setOpen(true)
 	}}} className={available===0?'semi-circle-2-active':'semi-circle-2-inactive'}>
+		<h1 className={available===0?"review-title-active":"review-title-inactive"}>
+		  Reviews
+	    </h1>
 		
 	</div>
-	<h1 className={available===0?"review-title-active":"review-title-inactive"}>
-		  Reviews
-	</h1>
-	<div onClick={()=>{{
+	
+	<div id={num!=null?'blur':''} className={available===1?'reviewer':'reviewer close'}>
+
+	    <div onClick={()=>{{
 		setAvailable(0)
 		setOpen(false)
-	}}} className={available===1?'reviewer':'reviewer close'}>
-
-	    <div className="rev-title">
+	}}} className="rev-title">
 	    	Reviews
 	    </div>
 	    <div className="reviews">
 		{data.rev.map((data)=>{
 			return(
-               <Review data={data} ></Review>
+               <Review setImages={setImages} setNum={setNum} data={data} ></Review>
 			)
 		})}
 	    	
@@ -144,8 +188,9 @@ const ReviewSlide=({data,open,setOpen})=>{
 	)
 }
 
-const Review = ({data}) =>{
-	let [images,setImages] = useState(null)
+const Review = ({data,setNum,setImages}) =>{
+	let [image,setImage] = useState(null)
+	
 	let url = 'http://127.0.0.1:8000/review/images/'
 	let base_url = 'http://127.0.0.1:8000'
     console.log(data,'data')
@@ -153,7 +198,7 @@ const Review = ({data}) =>{
     	axios.post(url,{'id':data.id})
     	.then((response)=>{
             console.log(response.data,'RES')
-            setImages(response.data)
+            setImage(response.data)
     	})
     	.catch((err)=>{
     		console.log(err)
@@ -179,19 +224,28 @@ const Review = ({data}) =>{
       			{data.review}
       		</div>
       		<div className="images">
-      			{images?images.map((image)=>{
+      			{image?image.map((img,i)=>{
+      				console.log(i)
       				return(
-      					<div className="rev_image_cont">
+      					<div onClick={()=>{
+      						console.log(i)
+                             setNum(i)
+                             setImages(image)
+                         
+                             console.log(image,'im')
+      					}} 
+      					className="rev_image_cont">
       						
-      					<img className='rev_images' src={`${base_url}${image.image}`} alt=""/>
+      					<img className='rev_images' src={`${base_url}${img.image}`} alt=""/>
       					</div>
       				)
       			})
       		    :
       		    "hi"
-      		}
+      		   }
       		</div>
       	</div>
+      	
 
       </div>
 	)

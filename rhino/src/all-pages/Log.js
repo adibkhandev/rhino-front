@@ -1,7 +1,7 @@
 import React,{useState,useContext} from 'react'
 import Context from './Context'
 import Navigation from './Navigation-ash'
-import Nav from './Nav'
+import {Nav} from './Nav'
 import axios from 'axios'
 
 

@@ -1,6 +1,12 @@
-
+.center{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
 .total-bill{
 	position: relative;
+	
 	.int-bill{
 		transition: 1s ease-in-out;
 	}
@@ -9,6 +15,7 @@
 	    // flex-direction: column;
 	    // justify-content: center;
 	    // align-items: center;
+	    // margin-top: 11vh;
 	    animation-name: appeared;
 	    animation-timing-function: ease-in-out;
 	    animation-duration: 0.5s;
@@ -17,15 +24,19 @@
         
 		position: relative;
 	    overflow: hidden;
-		position: absolute;
-		top: 14%;
-		margin-left: 37.4vw;
+		// position: absolute;
+		// top: 14%;
+		// left: 36vw;
 		width: 28vw;
-		height: 78vh;
+		min-width: 22rem;
+		max-width: 27rem;
+		min-height: 520px;
+		max-height: 68vh;
+		height: 48vw;
 		background-color: white;
 		border-radius: 5px;
 		h1{
-			position: absolute;
+			margin-bottom: 3rem;
 			background-color: #B1B2B5;
 			opacity: 0.8;
 			
@@ -48,8 +59,10 @@
 	}
 }
 .bill-page{
+
 	width: 100vw;
-	height: 100vh;
+	height: auto;
+	min-height: 100vh;
 	background-color:  #e5e5e5;
 	display: flex;
 	flex-direction: column;
@@ -62,7 +75,9 @@
  	width: 100%;
  }
  .content {
+ 	   margin-top: min(20vh,6.4em);
      width: 60%;
+     margin-bottom: 5vh;
 }
  .item{
   border-radius: 1px;
@@ -70,6 +85,7 @@
  	align-items: center;
  	width: 100%;
  	height: 13em;
+ 	max-height: 8vw;
  	background-color: #ececec;
   box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;	
   margin: 8px 0 ;
@@ -77,14 +93,15 @@
  		width: 17%;
  		margin-left: 3%;
  		img {
- 	   height:8em;
+ 		font-size:  clamp(0.7rem,1vw,5rem) !important;
+ 	   height:6em !important;
  	  }
  	}
  	.title{
  		width: 34% ;
  		h1{
  			color:#a0a5ab;
-  		@include Font(1rem,300);
+  		@include Font(clamp(0.7rem,0.9vw,1rem),300);
   	}
  	}
  	.trio{
@@ -118,18 +135,75 @@
  }
 
 	.content{
+
 		width: 70%;
 		height: 60%;
 		// background-color: black;
 		display: flex;
+		// flex-direction: column;
+		.net{
+			width: 100% !important;
+			.taka{
+				h1{
+					margin-right: 0.5rem;
+					margin-left: 0.2rem;
+					font-weight: 200;
+				}
+			}
+			// background-color: black !important;
+		}
 		.bill{
 			margin-right: 2em;
-			width: 52%;
+		
+			width: 70em;
+			max-width: 35vw;
+			.taka{
+				h1{
+					font-size: clamp(0.4rem,1vw,2.8rem) !important;
+				}
+				img{
+					font-size: 1.2vw !important;
+           height: clamp(0.5rem,0.7vw,1.2rem);
+           width: clamp(0.5rem,0.7vw,1.2rem);
+				}
+			}
+			.net{
+				// width: 20vw !important;
+					// max-width: 35vw;
+					margin-right: 0 !important;
+
+  margin-bottom: 1em;
+  border-radius: 1px;
+  background-color: #ececec;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;  
+   // width: max(20em,70vw) ; 
+   // min-width: 24rem;
+    height: 2em;
+      font-size: clamp(0.6rem,1vw,1.1rem) !important;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .net-header{
+      @include Font(0.8em,100);
+      margin-left: 1rem;
+  }
+	}			
+			
+
 			.item{
-				height: 7em;
+				
+        
+
+       
+        min-height: 90px;
+        
+				
 				.title{
-					@include Font(0.8rem,100);
-					color: black;
+					h1{
+					@include Font(clamp(0.1rem,1.4vw,1.8rem),200  ) ;
+					color: #303030 !important;
+				}
 				}
 				.image{
 					img{
@@ -145,7 +219,7 @@
 		}
 	}
 	.details{
-		width: 50%;
+		width: 100%;
 		margin-top: 0.4em;
 		.adressed , .delivery-time , .bill-sec , .payment-method{
 			background-color: #ececec;
@@ -232,8 +306,17 @@
 					display: flex;
 					justify-content: space-between;
 				}
+				.taka{
+					h1{
+						font-size:clamp(0.6em,0.8vw,1em) !important;
+					}
+					img{
+            height: clamp(0.6em,0.8vw,1em);
+            width: clamp(0.6em,0.8vw,1em);
+					}
+				}
 				.header{
-					@include Font(1em,100);
+					@include Font(clamp(0.6em,0.8vw,1em),100);
 					margin-right: 10%;
 				}
 				.colon{
@@ -254,7 +337,7 @@
 				flex-direction: column;
 				justify-content: space-around;
 				.radio{
-					@include Font(1rem,300);
+					@include Font(clamp(0.6em,0.8vw,1em),300);
 					color: grey;
 					input{
 						accent-color:grey;
@@ -276,14 +359,19 @@
 		}
 	}
 	.checkout-btn{
+		margin-bottom: 5vh;
 		background-color: #3d3d3d;
 		@include Font(0.7rem,300);
 		color: white;
-		padding: 1rem 8rem;
+		width: 33em;
+
+		height: 4em;
 		border-radius: 4px;
 	}
 }
 .off{
+	position: absolute;
+	top: 0;
 	filter: blur(15px);
 	transition: 3s ease-in-out;
 }
@@ -298,25 +386,24 @@
 	height: 100%;
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start;
+	justify-content: center;
 	align-items: center;
 	z-index: 2;
-	margin-top: 26%;
+	
 	h1{
 
 	}
 	.buttonS{
-		margin-top: 33%;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		width:73.5%;
 		button{
 			width: 24em;
-			height: 5.8rem;
+			height: 5.8em;
 			margin-bottom: 1.6em;
 			border-radius: 40px;
-			@include Font(0.8rem,100);
+			@include Font(0.6rem,100);
 			border-width: 2.5px;
 			border-style: solid;
 
@@ -338,4 +425,43 @@
 		color: #8f8f8f;
 		
 	
+	}
+
+	@media (width < 1000px) {
+		.adressed , .delivery-time{
+			font-size: clamp(0.5rem,2vw,0.8rem) !important;
+		}
+		.bill{
+			min-width: 70vw;
+		}
+		.net{
+			min-width: 70vw;
+		}
+		.content{
+			flex-direction: column;
+			.bill{
+			.item{
+				.title{
+					h1{
+					font-size: clamp(0.2rem,2.1vw,0.9rem) !important;
+
+					}
+				}
+			}
+
+			}
+
+		}
+		.checkout-btn{
+			width: 70vw !important;
+		}
+	}
+	@media (width > 1000px) {
+		.item{
+			font-size: 0.8vw;
+		}
+		.bill{
+				font-size: 1vw;
+		}
+		
 	}

@@ -109,12 +109,17 @@ const RunningOut = () => {
 
               }}
                         className={animate===1?"images ghost":animate===2?"images ghost human":"images"}>
-
+                      <div className="img-cont">
+                        
                       <img  src={`${image_url}${products[active].product.image}`} alt=""/>
+                      </div>
 
                        {inactive.map((inac)=>{
                         return(
+                          <div className="img-cont">
+                            
                             <img className="inactive-images" src={`${image_url}${inac.product.image}`} alt=""/>
+                          </div>
                         )
                        })}
                       

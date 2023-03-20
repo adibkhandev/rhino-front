@@ -97,6 +97,15 @@ export let FixedStars =({star})=>{
 
 }
 
+export let NotFound = () =>{
+   return(
+      <div className="container">
+         <img src="images/cat.png" alt=""/>
+         <h1>Cat found nothing by that name</h1>
+      </div>
+   )
+}
+
 export let Item = (props)=>{
    let [liked,setLiked]=useState(()=>{
        if(props.liked){

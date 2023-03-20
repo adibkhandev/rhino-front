@@ -3,7 +3,9 @@ import Navigation from './Navigation'
 import '../sass/main.scss'
 import RunningOut from './RunningOut'
 import MostPopular from "./MostPopular"
-import Nav from './Nav'
+// import Nav from './Nav'
+import {SearchEngine,Nav} from './Nav'
+
 import axios from 'axios'
 
 import {AuthProvider,Context} from './Context'
@@ -18,17 +20,17 @@ let Landing = ({setSearch})=>{
     // console.log(context)
     let usersetter = context.usersetter
     let token = context.token
-   
-     useEffect(() => {
-       if(token){
-         // console.log(token,'tok')
-       }
-     }, [token])
+    let SetSearch = context.setsearch
+     // useEffect(() => {
+     //   if(token){
+     //     // console.log(token,'tok')
+     //   }
+     // }, [token])
   return(
     <>
     <div   className="land">
       <Nav  setSearch={setSearch}  stick={true} ase={true} searchon={searchon?true:false} visible={isout} colour={'white'} ></Nav>
-     <Home scrolling={setSearchon} referer={setIsout}  ></Home>
+     <Home setsearch={SetSearch} searchon={searchon} ase={true} scrolling={setSearchon} referer={setIsout}  ></Home>
      <RunningOut  ></RunningOut>
      <MostPopular ></MostPopular>
     </div>
@@ -51,7 +53,7 @@ let Home =(props)=>{
       let observer = new IntersectionObserver ((entries,options)=>{
         let entry = entries[0];
         props.referer(entry.isIntersecting)
-        // console.log(entry)
+        console.log(entry)
 
       })
       if(myref.current){
@@ -69,8 +71,13 @@ let Home =(props)=>{
       setButtonthere(true)
      }
    }
-   props.scrolling(buttonthere)
+   useEffect(() => {
    window.addEventListener('scroll',scroller)
+     return () => {
+       window.removeEventListener('scroll',scroller)
+     };
+   })
+   // props.scrolling(buttonthere)
   return(
     <>
        <div  className="page1">
@@ -93,6 +100,15 @@ let Home =(props)=>{
            <Scrolldown visibility={buttonthere} >
          
            </Scrolldown>
+           <div className="floating-search">
+           
+           <SearchEngine setSearch={props.setsearch} searchon={props.searchon} ase={props.ase} >
+             
+           </SearchEngine>
+             
+           </div>
+             
+        
 
        </div>
  

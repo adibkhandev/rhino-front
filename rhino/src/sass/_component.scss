@@ -6,47 +6,63 @@
 }
 .minier{
 
+		@include Font(clamp(0.8rem, 1vw, 1rem),100);
 	h1{
-		@include Font(0.86em,100);
-		margin-left: 2.4px;
+		margin-left: 3.8px;
+		font-size: inherit;
+		font-weight: inherit;
 	     }
 	  img{
-		height: 0.8em;
+	  	font-size: inherit;
+		height: 0.8em !important;
+		width: 0.8em !important;
 	}
 }
 .mini{
-	h1{
 		@include Font(1em,100);
+	h1{
 		margin-left: 4px;
+		font-size: inherit;
+		font-weight: inherit;
 	     }
 	  img{
+	  	font-size: inherit;
 		height: 1em;
 	}
 }
 .one{
-		h1{
 		@include Font(1.2em,100);
+		h1{
 		margin-left: 6px;
+		font-size: inherit;
+		font-weight: inherit;
 	     }
 	  img{
+	  	font-size: inherit;
 		height: 1.4em;
 	}
 }
 .two{
-		h1{
 		@include Font(1.85em,300);
+		h1{
 		margin-left: 6px;
+		font-size: inherit;
+		font-weight: inherit;
 	     }
 	  img{
+	  	font-size: inherit;
 		height: 2.25em;
 	}
 }
 .three{
-		h1{
 		@include Font(2em,300);
+		h1{
 		margin-left: 6px;
+		font-size: inherit;
+		font-weight: inherit;
 	     }
 	  img{
+	  	font-size: inherit;
 		height: 2.5em;
 	}
 }

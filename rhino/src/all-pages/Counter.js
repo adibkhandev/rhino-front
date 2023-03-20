@@ -1,11 +1,12 @@
 import React from 'react'
 import {useSelector,useDispatch} from 'react-redux'
-const Counter = ({id,count}) => {
+const Counter = ({id,count,movable}) => {
 	console.log("id",id)
     let dispatch = useDispatch()
 	return (
 		<div className="counter-cont" >
-			<img onClick={() =>  {
+			{!movable?(
+               <img onClick={() =>  {
                 console.log("clicked")  
 				dispatch({type:"UPDATE-" , id:id})
                       
@@ -14,6 +15,7 @@ const Counter = ({id,count}) => {
 			 }
 			 src="images/arrow-icon.png" alt="" className="left-arrow"
 			 />
+			 ):''}
 			   
 
 			   <div className="header-cont">
@@ -23,7 +25,8 @@ const Counter = ({id,count}) => {
 			   </div>
 			
 
-			<img onClick={() =>  {
+			{!movable?(
+               <img onClick={() =>  {
                 console.log("clicked")  
 				dispatch({type:"UPDATE+" , id:id})
                       
@@ -31,6 +34,7 @@ const Counter = ({id,count}) => {
 				} 
 			 } 
 			 src="images/arrow-icon.png" alt="" className="right-arrow"/>
+			):''}
 		</div>
 	)
 }

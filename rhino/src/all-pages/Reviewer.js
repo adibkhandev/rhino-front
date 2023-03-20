@@ -1,5 +1,5 @@
 import React,{useState,useEffect,useContext,useRef} from 'react'
-import Nav from './Nav'
+import {Nav} from './Nav'
 import {Taka,Stars} from "./Components"
 import axios from 'axios'
 import Navigation from './Navigation-ash'

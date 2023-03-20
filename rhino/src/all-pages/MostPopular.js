@@ -1,4 +1,4 @@
-import React,{useState,useEffect,useContext} from 'react'
+import React,{useState,useEffect,useContext,useRef} from 'react'
 import {Link} from "react-router-dom"
 import axios from 'axios'
 import Context from './Context'
@@ -71,18 +71,7 @@ const MostPopular = () => {
 			        {!load?popular.map((item)=>{
 			        	// console.log(item.image)
 			        	return(
-                         <Link to="./post" state={item} >
-					      <div className="card">
-						      <img src={`${image_url}${item.image}`} alt="" className="card-image"/>
-						      <h1 className="card-title">{item.name}</h1>
-						      <div className="price">
-						       <img src="images/taka.png" alt="" className="price-icon"/>
-						       <h1 className="card-price">{item.price}</h1>
-						      </div>
-						
-					      </div>
-				   	
-				         </Link>
+                      <Item item={item} ></Item>  
 			        	)
 			        }):'hi'}
 				  
@@ -95,4 +84,49 @@ const MostPopular = () => {
 	)
 }
 
+
+let Item = ({item}) =>{
+	let image_url = 'http://127.0.0.1:8000/'
+	let [visible,setVisible] = useState(false)
+	let cardRef = useRef(null)
+	let callback = entries =>{
+		     let [entry] = entries
+		     if(entry){
+
+         setVisible(entry.isIntersecting)
+         console.log(visible,'is')
+		     }
+	}
+	let options = {
+		root:null,
+		rootMargin:'0px',
+		threshold:0.45
+	}
+	useEffect(() => {
+		let observer = new IntersectionObserver(callback,options)
+		if(cardRef.current){
+			observer.observe(cardRef.current)
+		}
+		return () => {
+			if(cardRef.current){
+				
+			observer.unobserve(cardRef.current)
+			}
+		};
+	}, [cardRef,options])
+	return(
+     <Link to="./post" state={item} >
+					      <div ref={cardRef} className={!visible?"card out":"card"}>
+						      <img src={`${image_url}${item.image}`} alt="" className="card-image"/>
+						      <h1 className="card-title">{item.name}</h1>
+						      <div className="price">
+						       <img src="images/taka.png" alt="" className="price-icon"/>
+						       <h1 className="card-price">{item.price}</h1>
+						      </div>
+						
+					      </div>
+				   	
+     </Link>
+	)
+}
 export default MostPopular

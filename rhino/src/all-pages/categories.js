@@ -1,5 +1,5 @@
 import React,{useContext} from 'react'
-import Nav from './Nav'
+import {Nav} from './Nav'
 import Context from './Context'
 import {Link} from "react-router-dom"
 const Categories = () => {
